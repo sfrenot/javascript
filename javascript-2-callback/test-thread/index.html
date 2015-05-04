@@ -1,0 +1,15 @@
+<textarea id="log" rows="20" cols="40"></textarea>
+<input id="inp">
+<script type="text/javascript">
+    var l= document.getElementById('log');
+    var i= document.getElementById('inp');
+    i.onblur= function() {
+        l.value+= 'blur\n';
+    };
+    setTimeout(function() {
+        l.value+= 'log in\n';
+        l.focus(); // Ne devrait pas être exécuté
+        l.value+= 'log out\n';
+    }, 100);
+    i.focus();
+</script>

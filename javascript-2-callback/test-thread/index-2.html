@@ -1,0 +1,13 @@
+<textarea id="log" rows="20" cols="40"></textarea>
+<button id="act">alert</button>
+<script type="text/javascript">
+    var l= document.getElementById('log');
+    document.getElementById('act').onclick= function() {
+        l.value+= 'alert in\n';
+        alert('alert!');
+        l.value+= 'alert out\n';
+    };
+    window.onresize= function() {
+        l.value+= 'resize\n';
+    };
+</script>
