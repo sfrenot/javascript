@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Un interpreteur de programme comme java, perl, clojure, go ou nodejs, permet d'exécuter des programme</title>
+
+</head>
+<body>
+<p>Un interpreteur de programme comme java, perl, clojure, go ou nodejs, permet d'exécuter des programme écrits ou compilés dans un langage spécifique. Pour le lancer on utilise la commande <code>&lt;nom de l'interpréteur&gt; &lt;nom du programme à interpréter&gt; &lt;paramètres&gt;</code>. Par exemple dans le cadre de java, on lance la commande <code>java monpackage.Test 1</code>, pour nodejs on lance la commande <code>node toto.js</code>. Dans les deux cas, il faut que le programme correspondant soit contenu dans un fichier disponible sur votre disque dur.</p>
+
+<p>Tous ces programmes s'installent quasiment de la même manière. Je décris ici la démarche sur un linux ou un macos.</p>
+
+<ul>
+<li>Lancer l'interpréteur dans une fenêtre de commande pour vérifier qu'il est installé.</li>
+</ul>
+
+
+<pre><code>    ~$ nodejs  
+</code></pre>
+
+<p>Si vous obtenez une réponse du style
+<code>-bash: node: command not found</code> c'est que votre programme n'est pas installé. (Il est possible que le message soit écrit en français). Dans ce cas il faut installer votre programme.</p>
+
+<ul>
+<li>Aller sur le site web du fournisseur de programme. Par exemple en faisant un <code>google -&gt; node javascript</code>, puis téléchargez la version binaire de votre programme. Je vous suggère de le télécharger sur un répertoire local de votre machine. En TC par exemple <code>/tmp</code>, ce qui évite de surcharger un serveur qui ne sert pas à cela. La commande classique pour un fichier tgz est <code>tar ztvf toto.tgz</code> pour lister le contenu et <code>tar zxvf toto.tgz</code> pour extraire le contenu. (Mais souvent un click suffit).</li>
+</ul>
+
+
+<pre><code>/tmp $ tar zxvf node-xxx.tgz
+node-xxx/lib/
+node-xxx/lib/aa.bin
+node-xxx/lib/aaabb.txt
+node-xxx/bin/node
+...
+/tmp $
+</code></pre>
+
+<ul>
+<li>Vérifiez qu'à partir de votre zone d'installation vous accédez au programme. Par exemple en tapant son chemin d'accès complet.</li>
+</ul>
+
+
+<pre><code>~$ cd 
+~$ /tmp/node-v23-x86/bin/node`
+&gt;
+</code></pre>
+
+<p><em>Notez souvent le changement de <code>prompt</code> quand vous passez dans l'interpréteur interactif. Il est alors souvent utile de trouver comment en sortir <code>CTRL-D</code> ou  <code>CTRL-C</code> font souvent l'affaire.</em></p>
+
+<ul>
+<li>Un dernier point consiste à pouvoir invoquer votre commande de n'importe où de votre environnement. Dans l'exemple précédent, si vous lancez la commande <code>node</code> sans chemin absolu, vous obtiendrez toujours l'erreur <code>command not found</code>. Il est donc nécessaire de l'ajouter à l'environnement de votre interpréteur de commande (tient encore un interpréteur...). Pour cela il faut modifier votre <code>PATH</code> qui contient la liste des chemins testés pour trouver les commande dans votre interpréteur shell. Pour modifier votre variable PATH,  on place la commande dans votre environnement <code>.bashrc ou .bash_profile</code>. Editez un de ces fichiers, et ajoutez une ligne du style</li>
+</ul>
+
+
+<pre><code>export PATH=$PATH:/tmp/node-xxx/bin
+</code></pre>
+
+<p>Qui indique à votre interpréteur shell, de déclarer la variable PATH, comme étant l'ancienne variable PATH, concaténée du répértoire <code>/tmp/node-xxx/bin</code>. Mais cette commande n'est pas exécutée dans votre environnement. Si vous êtes dans votre shell et que vous tapez la commande.</p>
+
+<pre><code>~$ echo $PATH
+</code></pre>
+
+<p>Votre nouveau répértoire n'est pas pris en compte, sauf si vous avez ouvert une nouvelle fenêtre et que votre interpréteur a bien chargé votre fichier .bashxxx (ce qui n'est pas toujours le cas). Pour charger votre nouvel environnement dans la fenêtre courante, on utilise la commande <code>source</code> ou son alias <code>.</code></p>
+
+<pre><code>~$ source ~/.bashrc
+ou
+~$ . ~/.bash_profile
+</code></pre>
+
+<p>est donc une commande de l'interpréteur shell, qui charge le fichier, et qui par exemple la commande <code>export variable=valeur</code> maintient la valeur de la variable dans la mémoire de la fenêtre de commande. Vous pouvez maintenant lancer la commande <code>node</code> et faire le TD...</p>
+
+<p><em>Pour savoir si une commande est disponible dans le <code>PATH</code> courant de votre fenêtre courante, vous pouvez utiliser la commande which</em></p>
+
+<pre><code>~ $ echo $PATH
+/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/iballot/node-v0.10.13-darwin-x64/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/go/bin:/opt/wiko/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:/opt/wiko/adt-bundle-mac-x86_64-20131030/sdk/tools
+~ $ which node
+/opt/iballot/node-v0.10.13-darwin-x64/bin/node
+</code></pre>
+</body>
+</html>
