@@ -19,9 +19,8 @@ var app = express();
  
 app.get('/', function (req, res) {
   request_logger.log('Request received on /')
+  //res.on('finish', request_logger.log.bind(request_logger));
   res.send('Hello World!');
-  // res.on('finish', request_logger.log.bind(request_logger));
-  res.on('finish', request_logger.log);
 });
  
 var server = app.listen(3333, function () {
