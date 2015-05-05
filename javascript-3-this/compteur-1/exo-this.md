@@ -1,3 +1,31 @@
+L'objectif de ce TD est double. Découvrir coffeescript comme sur-langage à JavaScript et comprendre le mot-clé this. 
+L'exercice se fera sous io.js ou node.js.
+
+** Prérequis : Installation d'un interpréteur et nodejs ou io.js **
+
+# CoffeeScript
+Coffeescript est décrit sur ce site Web. Nous n'allons pas tout étudier, mais deux constructions sont interessantes. 
+
+L'opérateur `->`remplace la déclaration de fonction, et la supression  des `{}`comme délimiteurs de bloc pour les remplacer par des indentations. 
+
+La possibilité de définir des classes.
+
+    Vérifier que nodejs est installé
+    Installez coffee-script : npm install coffee-script
+    Consultez la documentation coffeescript pour comprendre la déclaration de classes
+    
+Traduire le code suivant en classe coffeeScript et vérifier que le code fonctionne
+    
+    function Lapin (couleur) {
+      this.couleur = couleur;
+      this.parle = function (phrase) {
+        console.log("Le Lapin ", this.couleur, " dit ", phrase, " .");
+      }
+    }
+
+    var lapinTueur = new Lapin("blanc");
+    lapinTueur.parle("Groumpf");
+
 # Ecrire le code coffee similaire à cette classe javascript
 
     var Counter = function () {

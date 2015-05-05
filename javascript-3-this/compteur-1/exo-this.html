@@ -152,10 +152,41 @@ sup {
 	}
 }
 </style>
-<title>Ecrire le code coffee similaire à cette classe javascript</title>
+<title>CoffeeScript</title>
 
 </head>
 <body>
+<p>L'objectif de ce TD est double. Découvrir coffeescript comme sur-langage à JavaScript et comprendre le mot-clé this.
+L'exercice se fera sous io.js ou node.js.</p>
+
+<p><strong> Prérequis : Installation d'un interpréteur et nodejs ou io.js </strong></p>
+
+<h1>CoffeeScript</h1>
+
+<p>Coffeescript est décrit sur ce site Web. Nous n'allons pas tout étudier, mais deux constructions sont interessantes.</p>
+
+<p>L'opérateur <code>-&gt;</code>remplace la déclaration de fonction, et la supression  des <code>{}</code>comme délimiteurs de bloc pour les remplacer par des indentations.</p>
+
+<p>La possibilité de définir des classes.</p>
+
+<pre><code>Vérifier que nodejs est installé
+Installez coffee-script : npm install coffee-script
+Consultez la documentation coffeescript pour comprendre la déclaration de classes
+</code></pre>
+
+<p>Traduire le code suivant en classe coffeeScript et vérifier que le code fonctionne</p>
+
+<pre><code>function Lapin (couleur) {
+  this.couleur = couleur;
+  this.parle = function (phrase) {
+    console.log("Le Lapin ", this.couleur, " dit ", phrase, " .");
+  }
+}
+
+var lapinTueur = new Lapin("blanc");
+lapinTueur.parle("Groumpf");
+</code></pre>
+
 <h1>Ecrire le code coffee similaire à cette classe javascript</h1>
 
 <pre><code>var Counter = function () {
@@ -168,9 +199,11 @@ sup {
 
 var myCounter = new Counter();
 myCounter.tick()
+myCounter.tick()
+myCounter.tick()
 </code></pre>
 
-<h1>Utilisez une classe coffee à la place d'une simple traduction</h1>
+<h1>Utilisez une classe coffee à la place d'une simple traduction du code</h1>
 
 <h1>Ajouter un timeout pour un second appel.</h1>
 
@@ -179,8 +212,8 @@ myCounter.tick()
 setTimeout(myCounter, 1000)
 </code></pre>
 
-<p>-> Que se passe t'il ?
--> Lire la document de this sur <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this</a>
+<p>-> Que se passe t'il ?<br/>
+-> Lire la document de this sur <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this</a> <br/>
 -> Corriger le code</p>
 
 <h1>Corrigez votre classe coffee, pour éviter cela</h1>
