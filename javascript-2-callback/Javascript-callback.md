@@ -28,9 +28,8 @@ Il est possible qu'une fonction bloque de manière assez brutale une page html.
 Conclusions ? Commentaires ?
 
 ## Comprendre l'eventStack
-# Refs
-Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014
-https://www.youtube.com/watch?v=8aGhZQkoFbQ
+**Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014
+https://www.youtube.com/watch?v=8aGhZQkoFbQ**
 
 La politique d'exécution d'une page html repose principalement sur un seul thread d'exécution. La fonction setTimeout, permet de placer dans la pile des prochaines fonctions à exécuter une fonction particulière. 
 Javascript exécute cette pile fonction après fonction dans l'ordre de la pile. Par exemple :  
@@ -88,7 +87,7 @@ Une convention à été choisie qui utilise le dernier paramètre d'une fonction
 L'appel équivalent asynchrone devient :
 `f3(25, function() { console.log("Appel terminé");} )`
 
-On remarquera l'utilisation d'une fonction anonyme comme dernier paramètre de l'appel, car oui, Javascript est un langage fonctionnel. C'est à dire que les paramètre d'une fonction peuvent être du type fonction. (Ce qui n'est pas possible dans les langages non fonctionnel comme Java par exemple). 
+On remarquera l'utilisation d'une fonction anonyme comme dernier paramètre de l'appel. C'est à dire que les paramètre d'une fonction peuvent être du type fonction. Ce qui n'est pas possible dans les langages non fonctionnel comme Java par exemple. 
 
 ***Exercice 3*** Transformez le code de la fonction coût pour notifier l'appelant à la fin de l'exécution. Montrez par la même occasion que l'appelant n'est pas bloqué dans son exécution, et que pourtant il ne 'quite pas' ; ce qui illustre le mécanisme de closure. 
 
