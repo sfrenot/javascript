@@ -52,7 +52,20 @@ Pile t1 | Pile t2 | Pile t3 | Pile t4
 Transformez le compteur précédent, dans une fonction strictement équivalente mais qui ne bloque pas le client. 
 
 ## L'arrivée du callback
-On repart sur le pattern d'écriture de fonction non bloquante suivant :
+On peut maintenant se débarasser du navigateur et revenir sur io.js
+Reprendre le script non bloquant pour y récupérer la terminaison.   
+
+    function call1 (i {
+      if (i < 20) {
+        i++;
+        console.log(i);
+        setTimeout(call1, 0, i);
+      }
+    }
+
+    call1(0);
+
+On peut faire la même manipulation sur un `pattern`  d'écriture de fonction non bloquante suivant :
 
     //Pattern
     function call1 () {
@@ -140,6 +153,8 @@ Les promesses (implantée par Q, ou fibers()), Asynch, ou XXX sont de telles bib
 
 #Refs
 bluebird promesses   
-http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript   
+http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript
+
+
 
 
