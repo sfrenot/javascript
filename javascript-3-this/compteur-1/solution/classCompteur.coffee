@@ -9,7 +9,7 @@ class Counter
 monCompteur = new Counter()
 
 monCompteur.tick()
+setTimeout(monCompteur.tick, 0)
 
-setTimeout(monCompteur.tick, 1000)
 
 

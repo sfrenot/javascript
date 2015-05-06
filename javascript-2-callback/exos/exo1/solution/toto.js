@@ -1,14 +1,10 @@
-window.onload = function() {
-var res = document.getElementById("cpt");
-
-function call1 (i) {
-  if (i < 200000) {
+function call1 (i {
+  if (i < 20) {
     i++;
     console.log(i);
-    res.innerHTML = i
     setTimeout(call1, 0, i);
-  }
+  } 
 }
 
-setTimeout(call1, 0, 0);
-}
+call1(0);
+

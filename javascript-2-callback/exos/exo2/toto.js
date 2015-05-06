@@ -1,19 +1,16 @@
-//Pattern
-function call1 () {
-  function _call1(i) {
-    //Ancienne fonction
+function call1 (i) {
+  if (i < 20) {
     i++;
-    console.log("i -->" + i);
-    if (i < 2000) {
-      //Pattern
-      setTimeout(_call1, 0, i);
-    } 
+    console.log(i);
+    setTimeout(call1, 0, i);
+  } else {
+    return 'ok';
   }
-  _call1(0);
+  return 'ok';
 }
 
-ret = call1()
+ret = call1(0);
 if (ret === 'ok') {
-  console.log("Terminé");
-}
+  console.log('terminé');
+};
 
