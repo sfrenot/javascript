@@ -152,8 +152,15 @@ Les promesses (implantée par Q, ou fibers()), Asynch, ou XXX sont de telles bib
 ***Exercice 6*** Proposez un modèle standard de gestion des codes de retour.
 
 #Refs
-bluebird promesses   
-http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript
+- bluebird promesses    
+http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript  
+
+Philip Roberts  
+- https://www.youtube.com/watch?v=8aGhZQkoFbQ  
+
+Douglas Crockford  
+- https://www.youtube.com/watch?v=dkZFtimgAcM  
+
 
 
 
