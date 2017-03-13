@@ -1,159 +1,90 @@
-# Pourquoi faut-il des callback en Javascript ?[^1]
-Javascript propose la mise en place de callback, car le langage ne possède pas de support pour des exécution multithreadées, et que le mécanisme de callback est l'unique solution pour ne pas bloquer une exécution.     
-[^1]: &copy; Stéphane Frénot, Département Télécommunications, cours ELP
+# Pourquoi faut-il des callback en Javascript ?
+Javascript propose la mise en place de callback, car le langage ne possède pas de support pour des exécution multithreadées, et que le mécanisme de callback est l'unique solution pour ne pas bloquer une exécution monothreadée.
 
-Explications : L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback. 
+Explications : L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback et de ses origines.
 
-## Faire une page html qui exécute un simple script contenant une fonction "coûteuse"
-Il est possible qu'une fonction bloque de manière assez brutale une page html. 
+## Exercice liminaire
+Ecrire et lancer le programme suivant :
 
-***Exercice 1*** Montrez, qu'à partir d'un certain "coût" de la fonction, la page à du mal à s'afficher. 
+		function test() {
+		  for (var i = 0; i < 20; i++) {
+		    console.log("coucou", i);
+		  }
+		  return "termine";
+		}
 
-	<html>
-	  Hello world
-      GoodBye World
-	  <script src="exercice1.js"></script>
-	</html>
-<br />
-  
-    function call1 () {
-      console.log("i -->" + i);
-    }
- 
-    for (i = 0; i < 200; i++) {
-      call1();
-     }
+		console.log("Debut");
+		result = test();
+		console.log("->", result);
+		console.log("Fin");
 
+Avez-vous des commentaires ?
 
-Conclusions ? Commentaires ?
+Ecrire le nouveau programme suivant :
+		function test(f) {
+		  for (var i = 0; i < 20; i++) {
+		    console.log("coucou", i);
+		  }
+		  f("termine");
+		}
 
-## Comprendre l'eventStack
-**Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014
-https://www.youtube.com/watch?v=8aGhZQkoFbQ**
+		console.log("Debut");
 
-La politique d'exécution d'une page html repose principalement sur un seul thread d'exécution. La fonction setTimeout, permet de placer dans la pile des prochaines fonctions à exécuter une fonction particulière. 
-Javascript exécute cette pile fonction après fonction dans l'ordre de la pile. Par exemple :  
+		test(function(message) {
+		  console.log("->", message);
+		});
 
- Pile d'appel|
------ |       
- main() |    
- call1() |    
+		console.log("Fin")
 
-Javascript exécutera la f1, puis f2, puis f3. Après l'appel 
-setTimeout(f4, 200, 3), javascript placera la fonction f4 après 200 ms à la suite des fonctions à exécuter
+Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
 
-Pile t1 | Pile t2 | Pile t3 | Pile t4
----- |
- main()| call1(1) | call1() | ...
+## Exécution synchrone et asynchrone
+Nous allons maintenant transformer le programme suivant, pour qu'il devienne asynchrone...
 
-===> Langage turn based
+Copiez et exécutez le code suivant.
+		function test(f) {
+		  setTimeout(function () {
+		    for (var i = 0; i < 20; i++) {
+		      console.log("coucou", i);
+		    }
+		    f();
+		  })
+		}
 
-***Exercice 2***
-Transformez le compteur précédent, dans une fonction strictement équivalente mais qui ne bloque pas le client. 
+		console.log("Debut");
 
-## L'arrivée du callback
-On peut maintenant se débarasser du navigateur et revenir sur io.js
-Reprendre le script non bloquant pour y récupérer la terminaison.   
+		test(function(message) {
+		  console.log("-> Terminé");
+		});
 
-    function call1 (i {
-      if (i < 20) {
-        i++;
-        console.log(i);
-        setTimeout(call1, 0, i);
-      }
-    }
+		console.log("Fin")
 
-    call1(0);
+Lancez et exécutez le code suivant. Avez-vous compris ce qu'il vient de se passer ?
 
-On peut faire la même manipulation sur un `pattern`  d'écriture de fonction non bloquante suivant :
+--> Philip Roberts  
+- https://www.youtube.com/watch?v=8aGhZQkoFbQ  
 
-    //Pattern
-    function call1 () {
-      function _call1(i) {
-      //Ancienne fonction
-        i++;
-        console.log("i -->" + i);
-        if (i < 2000) {
-        //Pattern
-          setTimeout(_call1, 0, i);
-        } 
-       }
-      _call1(0);
-      return 'ok';
-     }
-     
-     call1()
-     
-Comment récupérer la terminaison de la fonction call1 ?
+Le passage par un système asynchrone à base de callback dans le cas de javascript permet de rendre l'appelant indépendant de l'appelé. Ceci est en changement majeur de paradigme de programmation impératif ou fonctionnel. On peut, dès lors, écrire du code non bloquant sans se soucier de la synchronisation des différents espaces d'exécution.
 
-Montrez ce qui se passe quand on traite la question de manière synchrone ?     
+Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages, quels sont les inconvénient ? Quels est le type de système d'exploitation associé à cette approche ? Comprenez-vous que cette approche n'est pas liée à Javascript ? Mais à quoi est elle liée alors ?
 
-Le pattern précédent ne bloque plus le client ! Certe, mais celui-ci ne sait alors plus quand la fonction se termine. Il est alors impossible d'écrire un programme, qui, à la fois utilise un code non-bloquant d'appel de fonction et qui bloque l'appelant le temps de son exécution. 
+Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un navigateur. C'est une boucle infinie : qui lance régulièrement des fonctions de traitement.
 
-Pour résoudre ce problème, on passe par le célèbre mécanisme de callback de Javascript. Qui est intimement lié au mécanisme de closure. 
+Réécrire le code précédent afin d'avoir une exécution infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.
 
-Un appel synchrone/bloquant s'écrit classiquement ainsi
-`ret = f3(25)`, bloque l'appelant le temps que f3 s'éxécute avec le paramètre `25`, et lui transmet le résultat dans la variable ret à la fin. Dans javascript les appels ne peuvent plus être bloquants, et la syntaxe précédent ne véhicule aucune information dans un certain nombre de cas. 
+## Généralisation	des callbacks
+La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
 
-Une convention à été choisie qui utilise le dernier paramètre d'une fonction asynchrone en tant que fonction que l'appelé utilisera pour notifier l'appelant de la fin de son exécution. 
+Ecrire un code nodejs permettant de lire le contenu d'un fichier.
+https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback
 
-L'appel équivalent asynchrone devient :
-`f3(25, function() { console.log("Appel terminé");} )`
+Ecrire un code nodejs permettant de faire un get sur une page Web https://nodejs.org/api/http.html#http_http_request_options_callback
 
-On remarquera l'utilisation d'une fonction anonyme comme dernier paramètre de l'appel. C'est à dire que les paramètre d'une fonction peuvent être du type fonction. Ce qui n'est pas possible dans les langages non fonctionnel comme Java par exemple. 
-
-***Exercice 3*** Transformez le code de la fonction coût pour notifier l'appelant à la fin de l'exécution. Montrez par la même occasion que l'appelant n'est pas bloqué dans son exécution, et que pourtant il ne 'quite pas' ; ce qui illustre le mécanisme de closure. 
-
-## L'enchaînement des callbacks
-L'utilisation des callback, permet donc de réaliser un programme sychrone non bloquant pour l'appelant, exécutant une suite d'action en fonction du résultat des actions précédentes alors que le contrôle global est fait de manière asynchrone non bloquante.
-
-***Exercice 4*** Ecrivez le programme à base de callback équivalent à cet appel "classique".
-    ret1 = appelBloquant1();
-    ret2 = appelBloquant2();
-    ret3 = appelBloquant3();
-    
-C'est à dire, formulé différemment, un programme garantissant que l'ordre d'appel des fonctions est conservé strictement. appelBloquant1 > appelBloquant2 > appelBloquant3, quelque soit le comportement d'attente des fonctions. 
-
-**Gardez bien à l'esprit que les appelBloquants peuvent potentiellement coûter très chers, mais ne doivent pas perturber le navigateur**
-
-## L'enfer des callbacks
-Les callbacks génèrent une structure de lecture qui n'est pas alignée avec la structure d'exécution. Ceci est habituellement appelé l'enfer des callbacks. 
-
-***Exercice 5*** indiquez l'ordre d'apparition des messages le plus probable du code suivant.
-
-    console.log("A");
-	call1(function() {
-	  console.log("B");
-	  call2(function() {
-	    console.log("C");
-	    call3(function() {
-	      console.log("D");
-	    });
-	    console.log("E");
-	  });
-	  console.log("F");
-	});
-	console.log("G");
-	
-
-Il est clair que ce code, est moins clair que :
-
-    System.out.println("A");
-    ret1 = appelBloquant1();
-    System.out.println("B");
-    ret2 = appelBloquant2();
-    System.out.println("C");
-    ret3 = appelBloquant3();
-    
-Il est l'est d'autant plus que les codes de retour ne sont pour l'instant pas traités. Deux solutions sont alors possibles, soit continuer à faire évoluer le pattern, soit utiliser une bibliothèque offrant une vision simplifiée du patterns des callbacks sous le nom d'un paradygme commun. 
-
-Les promesses (implantée par Q, ou fibers()), Asynch, ou XXX sont de telles bibliothèques. 
+Avez-vous des commentaires ?
 
 ***Exercice 6*** Proposez un modèle standard de gestion des codes de retour.
 
 #Refs
-- bluebird promesses    
-http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript  
 
 Philip Roberts  
 - https://www.youtube.com/watch?v=8aGhZQkoFbQ  
@@ -161,7 +92,7 @@ Philip Roberts
 Douglas Crockford  
 - https://www.youtube.com/watch?v=dkZFtimgAcM  
 
+- bluebird promesses    
+http://stackoverflow.com/questions/4288759/asynchronous-for-cycle-in-javascript  
 
-
-
-
+&copy; Stéphane Frénot, Département Télécommunications, cours ELP, 2017

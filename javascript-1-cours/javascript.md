@@ -1,5 +1,6 @@
 # JavaScript
 ---
+Ce TD suppose une connaissance initiale en programmation impérative C et en approche objet Java. 
 
 Mars 2014 - [Stéphane Frénot](mailto:stephane.frenot@insa-lyon.fr), INSA Lyon / Telecom
 
@@ -204,6 +205,9 @@ Les tableaux existent.
 Pareil que pour java / throw + try/catch
 
 # Le sujet de la première séance s'arrête ici.
+A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
+Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
+
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
 Ce sont des fonctions qui prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
 
