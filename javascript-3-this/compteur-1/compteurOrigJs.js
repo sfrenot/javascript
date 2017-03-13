@@ -7,10 +7,14 @@ var Counter = function () {
 };
 
 var myCounter = new Counter();
+//setTimeout(myCounter.tick.bind(myCounter), 2000)
+setTimeout(myCounter.tick, 2000)
+
+/*myCounter.tick()
 myCounter.tick()
 myCounter.tick()
 myCounter.tick()
 myCounter.tick()
 myCounter.tick()
 myCounter.tick()
-myCounter.tick()
+*/

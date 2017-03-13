@@ -3,8 +3,10 @@
 
 Mars 2014 - [Stéphane Frénot](mailto:stephane.frenot@insa-lyon.fr), INSA Lyon / Telecom
 
-JavaScript est un langage de programmation initialement introduit dans les navigateurs Web afin de rendre les pages HTML plus dynamiques dans leurs interactions avec l'utilisateur. Des optimisations en performances lui ont permis de se hisser comme un langage de programmation efficace aussi bien au niveau du client qu'au niveau du serveur. Il est nécessaire dans une cadre d'ingénieurie informatique de bien connaitre ce langage dans le contexte du Web actuel, car vous serez nécessairement confronté un jour à son utilisation. S'il est souvent présenté comme un langage mal conçu, il est en passe de devenir le langage de référence d'Internet. Certains groupes comme Google ont véritablement parié sur ce langage autant que sur l'alternative Java par exemple. Ce cours essaye d'expliquer rapidement le contexte d'utilisation de JavaScript afin d'en comprendre les pièges et les freins initiaux. 
+JavaScript est un langage de programmation initialement introduit dans les navigateurs Web afin de rendre les pages HTML plus dynamiques dans leurs interactions avec l'utilisateur. Des optimisations en performances lui ont permis de se hisser comme un langage de programmation efficace aussi bien au niveau du client qu'au niveau du serveur. Il est nécessaire dans une cadre d'ingénieurie informatique de bien connaitre ce langage dans le contexte du Web actuel, car vous serez nécessairement confronté un jour à son utilisation. S'il est souvent présenté comme un langage mal conçu, il est en passe de devenir le langage de référence d'Internet. Certains groupes comme Google ont véritablement parié sur ce langage autant que sur l'alternative Java par exemple. Ce cours essaye d'expliquer rapidement le contexte d'utilisation de JavaScript afin d'en comprendre les pièges et les freins initiaux.
 
+Un cours de synthèse : [Damien Reimert](http://cours.reimert.fr/javascript.html#)
+Un autre cours : [Stéphane Frénot](http://perso.citi.insa-lyon.fr/sfrenot/cours/TSE-2016/JavaScriptTSE-html)
 Le livre à lire est : [Eloquent Javascript](http://eloquentjavascript.net/)
 
 JavaScript est un langage faiblement typé, avec peu de contrôle.
@@ -12,7 +14,7 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 **Avez-vous une idée de la raison ?**
 
 ## Un langage 'classique' basé sur des fonctions et des algorithmes
-On parle de langage impératif, car vous explicitez les algorithmes de traitement que vous voulez exécuter. 
+On parle de langage impératif, car vous explicitez les algorithmes de traitement que vous voulez exécuter.
 
 ### Lancement
 
@@ -25,55 +27,55 @@ Il n'existe pas de programme 'le plus simple' car il n'y a aucune contrainte imp
 
     i = 1
     console.log("coucou " + i)
-    
+
 **Essayez donc ce programme dans les deux modes**   
 **Quels sont vos commentaires ?**
 
-Vous pouvez également lancer ce programme dans votre navigateur Web préféré. Soit avec la console interactive, soit en écrivant une page html qui charge le script. 
+Vous pouvez également lancer ce programme dans votre navigateur Web préféré. Soit avec la console interactive, soit en écrivant une page html qui charge le script.
 
     <html>
        <script src="./toto.js"></script>
     </html>
-    
+
 ### Les types de données
 Une variable n'a pas a être déclarée, elle sera 'typé' en fonction de son usage.
 
     1. numériques : i = 2012 //Attention la limite est de 2^52 (10^15)
     2. string : a = "coucou"    
     3. booleen : b = true
-    
-Une variable peut être déclarée avant son usage avec le mot clé var. Elle est alors initialisée à "undefined". 
-    
-    var x 
+
+Une variable peut être déclarée avant son usage avec le mot clé var. Elle est alors initialisée à "undefined".
+
+    var x
     console.log(x)
 
 ### Les structures de controle
-javascript possède des structures de controle algorithmiques comme tous les langages. 
+javascript possède des structures de controle algorithmiques comme tous les langages.
 
     if / else if / else
     while ()
     do {} while ()
     for () / break
     switch() / case / break
-      
+
 ### Les fonctions
 javascript permet de capturer les algorithmes dans des fonctions. Le programme initial (votre navigateur ou votre interpréteur javascript) est également une fonction.
 
     function somme(a, b) {
        return a+b
     }
-    
+
     console.log(somme(2,3))
-    
+
 _Les ';' sont optionnels si vous avez une instruction par ligne. Mais on est souvent habitué à mettre un ';'_
-    
+
 **Ecrire le programme correspondant à somme en javascript et en Java, exécuter. Quels sont vos commentaires ?**
 
 ## Un langage 'avancé' basé sur les fonctions
-Javascript est un langage issu de la communauté des langages fonctionnels stricts (scheme). Il présente une caractéristique forte d'être compatible avec ce paradigme (sans la notion de pureté). C'est à dire que les fonctions sont des élements de premier ordre, au même niveau que les variables. Ainsi une variable peut être de type fonction, et une fonction peut être passée en paramètre à une autre fonction ou passée comme retour de fonction. 
-     
+Javascript est un langage issu de la communauté des langages fonctionnels stricts (scheme). Il présente une caractéristique forte d'être compatible avec ce paradigme (sans la notion de pureté). C'est à dire que les fonctions sont des éléments de premier ordre, au même niveau que les variables. Ainsi une variable peut être de type fonction, et une fonction peut être passée en paramètre à une autre fonction ou passée comme retour de fonction.
+
 ### Avant d'aller dans les détails fonctionnels
-Evacuons un côté humoristique de javascript. 
+Evacuons un côté humoristique de javascript.
 
 ```    
 null == undefined
@@ -81,23 +83,23 @@ false == 0
 "" == 0
 "5" == 5
 ```
-    
+
 **Quelqu'un a une explication ?**
 **La solution est...**
 **Rejouez les tests avec ===**
 
 Quelques codes désagréables
-    
+
     var peutEtreNull = null;
     if (peutEtreNull) {
       console.log("Peut etre nul")
     }
-    
+
     "Appolo" + 5
     null + "ify"
     "5" * 5
     "strawberry" * 5
-    
+
 **Comment "blinder" tout cela ?**
 
 ### Bon, passons aux choses sérieuses avec nos fonctions
@@ -105,51 +107,61 @@ Une variable peut être de type fonction (et c'est là que ca va commencer à fa
 
     var a = function(a,b) { return a + b }
     console.log(a(4,5))
-    
-Et évidemment, on peut maintenant tout péter, car on peut mettre n'importe quoi dans une fonction. En gros il n'y aucune règle. 
-    
+
+Et évidemment, on peut maintenant tout casser, car on peut mettre n'importe quoi dans une fonction. En gros il n'y aucune règle.
+
     console.log = "a"
 
-C'est quoi une fermeture (closure) ?
-    
+## Comparons deux programmes de multiplications
+Vous allez comparer deux approches d'appel de fonction. Un appel qui renvoie directement le résultat d'un calcul et un appel qui renvoie une fonction capable de calculer un résultat.
+
+### Calcul direct, indirect foncteur
+Q1 Ecrire la fonction multiplie(a, b) qui renvoie le résultat d'une multiplication entre a et b.
+Ecrire le programme de test de cette fonction; Tout peut se faire dans le même fichier.
+
+Q2 Ecrire la fonction multiplieur(a, b) qui renvoie une fonction capable de réaliser la multiplication entre a et b. Puis de réaliser la même multiplication qu'auparavent.
+
+Prenez une pause pour comprendre ce code et posez vos questions.
+
+### Formes d'écriture de fonctions
+La déclaration d'un fonction test(x, y) peut s'écrire de deux manières différentes.
+Q3 Quels sont ces deux manières et à quoi cela correspond ?
+
+### Langage fonctionnel pur ou closure ?
+Q4 Testez et expliquez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
+
     function create() {
       var reponse = 23;
       return function (x) { return x + reponse; }
     }
-    
+
     var a = create()
     console.log(a(12))
 
-Nombre de paramètres d'une fonction ?
-    
+### Scope implicite vs Objet
+    function create() {
+      this.reponse = 23;
+      this.calc = function (x) { return x + this.reponse; }
+    }
+
+    var a = new create()
+    console.log(a.calc(12))
+
+### Nombre de paramètres d'une fonction et principe de curryfication.
+
     function moins(a, b, c) {
       return (a - b);
     }
-    
+
     console.log(moins(3, 2));
     console.log(moins(3, 2, 4, 8));
     console.log(moins(2));
 
-Mais ca sert à quoi d'avoir mal à la tête ?
-    
-    function additionneur(x) {
-      return function (a) { return a + x }
-    }
-    
-    var plusDeux = additionneur(2);
-    var plusTrois = additionneur(3);
-    
-    console.log (plusDeux(10))
-    console.log (plusTrois(2))
-    
-Pour les intimes, plusDeux() et plusTrois() s'appellent des functorObjects.
-Additionneur est une fonction d'ordre supérieur. C'est une fonction qui renvoie une fonction.  
-
-*** Ecrire la fonction d'ordre supérieur qui permet de composer une addition et une multiplication. Pour fabriquer des functeurs comme add4mult3.***
 
 ### Allons, respirons un peu avec les objets et les tableaux
-Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs. (Mais souvenez-vous qu'une valeur peut être une fonction par exemple, et là ca risque de ressembler à un objet Java ...).
-    
+Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs.
+Q5 : Pourquoi est-ce un objet ?
+
     var chose = { "hello" : "coucou", 3:10}
     chose["3"];
     -> 10
@@ -159,9 +171,9 @@ Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Assoc
     chose
     for (o in chose) {
       console.log( o + '->' + chose[o])
-    } 
-    
-Les tableaux existent évidemment.
+    }
+
+Les tableaux existent.
 
     mesAmis = ["bob", "raoul", "louis"]
     for (i = 0; i < mesAmis.length; i++) {
@@ -170,8 +182,8 @@ Les tableaux existent évidemment.
     tesAmis = new Array();
     tesAmis.push(1);
     tesAmis.push('leon');
-    
-   
+
+
 **Une petite remarque. Dans l'exemple précédent, que se passe t'il si on remplace :
  console.log("->" + mesAmis[i]), par console.log("->", mesAmis[i])**
 
@@ -179,31 +191,32 @@ Les tableaux existent évidemment.
     doe = "Doe"
     typeof doe.toUpperCase
     doe.toUpperCase()    
-    
+
 ### Les variables automatiques ###
     function arguments() {
       return "Vous avez fourni " + arguments.length + " arguments.";
     }
     arguments(1, 2, 3, "toto")
- 
+
 ***Une remarque particulière sur le code précédent ?***
 
 ### Les exceptions ###
 Pareil que pour java / throw + try/catch
 
+# Le sujet de la première séance s'arrête ici.
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
-Ce sont des fonctions qui prennent des fonctions en parametre, et peuvent donc les appliquer dans leur exécution.
+Ce sont des fonctions qui prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
 
     function afficheTableau(tableau) {
       for (i = 0; i < tableau.length; i++; ) {
         console.log(tableau[i])
       }
     }
-    
+
 **Console.log est une fonction... Transformez donc ce code dans une fonction générique `forEach` permettant d'appliquer une fonction quelconque à tous les membres du tableau. Utilisez-là pour afficher les valeurs du tableau sur la console, puis pour faire une somme d'éléments d'un tableau**
 
 On peut donc également renvoyer une fonction. Que fait la fonction suivante ?
-        
+
     function negate(func) {
       return function(x) {
         return !func(x)
@@ -211,39 +224,39 @@ On peut donc également renvoyer une fonction. Que fait la fonction suivante ?
     }
 
 **Ecrire la fonction de comparaison d'un nombre par rapport à 0 et appliquez la version negate dessus.**
-    
+
  En plus générique.
-    
+
     function negate(func) {
       return function() {
         return !func.apply(null, arguments)
       }
     }
-    
+
 **Qu'est ce que que cela apporte ?**
- 
- On peut finir avec le célèbre map/reduce. 
- 
+
+ On peut finir avec le célèbre map/reduce.
+
 Le réduce permet, en partant d'une valeur initiale, d'appliquer une fonction (connue dans le futur) à tous les éléments d'un tableau, afin de le réduire à une valeur unique.
-  
-    
+
+
     function reduce(future, base, tableau) {
       tableau.forEach(function (element) { // Ai-je déjà parlé des fonctions anonymes ?
         base = future(base, element)
       });
       return base
     }
-    
+
     --- Utilisation
     function add(a, b) { // Ceci est la fonction à utiliser dans le futur
       return a + b
     }
-    
+
     function sum(nombres) {
       return reduce (add, 0, nombres)
     }
-      
-Le map fabrique un nouveau tableau à partir de l'application d'une fonction sur tous les éléments du premier tableau. 
+
+Le map fabrique un nouveau tableau à partir de l'application d'une fonction sur tous les éléments du premier tableau.
 
 **A vous de l'écrire.**
 
@@ -253,9 +266,9 @@ Quelques autres éléments sur la programmation fonctionnelle.
       "+": function (a, b) { return a+b; },
       "-": function (a, b) { return a-b; }
     }
-    
+
     reduce (op["+"], 0, [1, 2, 3]) // On gagne la déclaration d'une fonction add
-    
+
     function partial (func) { // La fonction construit une nouvelle fonction, avec des       paramètres partiellement fournis
       var knownArgs = arguments;
       return function () {
@@ -269,17 +282,17 @@ Quelques autres éléments sur la programmation fonctionnelle.
         return func.apply(null, realArgs);
       };  
     }
-    
+
     map(partial(op["+"],1), [0,2,4]))  // Ici ca devient vraiment fonctionnel ...   
 
 **Que fait le code fonctionnel suivant ?**
-    
+
     function aDécouvrir(f1, f2) {
       return function () {
         return f1(f2.apply(null, arguments))
       }
     }    
-  
+
 ## Passons aux objets (de l'objet !!)
 Les objets en trois étapes
 
@@ -288,7 +301,7 @@ Les objets en trois étapes
       console.log("Le lapin dit '", phrase, "'");
     }
     lapin.parle("Je suis vivant.");
-   
+
 Mais aussi
 
     function parle (phrase) {
@@ -296,30 +309,30 @@ Mais aussi
     }
     var lapinBlanc = { couleur : "blanc", parle : parle };
     var lapinNoir = { couleur : "noir", parle : parle };
-    
+
     lapinBlanc.parle(" Je suis tout blanc ");
     lapinNoir.parle(" Je suis tout noir ");
-    
-    
+
+
     lapin.parle(" je suis blanc ")
     ==
     parle.apply(lapin, ["je suis blanc"]);
     ==
     parle.call(lapin, "je suis blanc");
-    
+
 
 On peut appliquer l'opérateur new sur une fonction. Je vous suggère d'écrire cette fonction avec une première lettre en majuscule.
-    
+
     function Lapin (couleur) {
       this.couleur = couleur;
       this.parle = function (phrase) {
         console.log("Le lapin ", this.couleur, " dit '", phrase, "'");
       };
     }
-    
+
     var lapinTueur = new Lapin(" tueur ");
     lapinTueur.parle(" GRRRAAAAAAHHHH ");
-    
+
     ------
     function fabriqueMoiUnLapin(couleur) {
       return {
@@ -328,9 +341,9 @@ On peut appliquer l'opérateur new sur une fonction. Je vous suggère d'écrire 
       };
     }
     var lapinNoir = fabriqueMoiUnLapin("black");
-    
+
 C'est ici qu'on découvre que javascript est un langage orienté prototype... Le prototype est un objet présent dans toutes les fonctions qui référence toute les fonctions disponibles à partir de celle-ci. Positionner une propriété n'affecte jamais le prototype. Rechercher une propriété se fait dans l'objet, puis dans le prototype, puis dans le prototype du prototype. Les prototypes sont chaînés.
-     
+
      Lapin.prototype.dents = "petites";
      lapinTueur.dents;
      --> "petites"
@@ -340,11 +353,11 @@ C'est ici qu'on découvre que javascript est un langage orienté prototype... Le
      Lapin.prototype.dents;
      --> "petites";
      "longues et ascérées"
-    
-     
+
+
 ![Prototypes](prototype.jpg =250x "Prototypes")
 
-Voici un schema de départ de description d'une fonction. 
+Voici un schema de départ de description d'une fonction.
 ![This](this.png "This")
 
 ```
@@ -365,7 +378,7 @@ Ce que fait l'operateur new est donc :
 3. Exécute le constructeur de ce prototype, en remplacant this par le nouvel objet créé (j) (j.a -> "debut")
 4. Renvoie l'objet nouvellement créé, sauf si le constructeur retourne une valeur non primitive
 
-Quand une propriété est recherchée, elle l'est dans l'objet puis dans tous les  prototypes enchainés. 
+Quand une propriété est recherchée, elle l'est dans l'objet puis dans tous les  prototypes enchainés.
 
 Un dernier détail important sur le mot clé `this` représente l'objet qui 'possède' la fonction qui s'exécute.
 
@@ -384,13 +397,13 @@ f()
 Tous les objets possèdent des propriétés. Les leurs, celles des prototypes, et de la chaîne des prototypes.
 
 Exemple 1
- 
+
     var lesEtudiants = {};
     if ("constructor" in lesEtudiants) {
        console.log("Oui, il y a un étudiants qui s'appelle 'constructor'");
     }
-    
-Exemple 2 : Ecrire une fonction qui permet de lister les proprietés d'un objet. 
+
+Exemple 2 : Ecrire une fonction qui permet de lister les proprietés d'un objet.
 
     var test = {x:10, y:3};
     console.log(test.properties());
@@ -398,26 +411,26 @@ Exemple 2 : Ecrire une fonction qui permet de lister les proprietés d'un objet.
 On est sauvé avec la methode hasOwnProperty qui permet de vérifier que la propriété est véhiculé par l'objet et non pas par son prototype.
 
 On peut donc ecrire le programme fonctionnel suivant :
-    
+
     function forEachIn(object, action) {
       for (var property in object) {
         if (object.hasOwnProperty(property))
           action(property, object[property]);
       }
     }
-    
+
     var etudiants = {"sfrenot" : {nom: "frenot", prenom : "stephane", age : "22"},
                      "lmametz" : {nom: "mametz", prenom : "laurent"}};
     forEachIn(etudiants, function(name, value) {
       console.log("nom : ", name, " -> valeur ", value);
     });
-    
+
 **Que se passe t'il si un étudiant s'appelle 'hasOwnProperty' ?
 Voyez-vous une solution ? (Changer d'ordre par exemple ...)**            
-           
+
 ## Un dernier point sur la modularité et la notion d'interface de service
 
-On veut faire un 'module' qui 'exporte' deux fonctions publiques de conversion. 
+On veut faire un 'module' qui 'exporte' deux fonctions publiques de conversion.
 Comment fonctionne ce programme ?
 
     function buildMonthNameModule() {
@@ -436,21 +449,21 @@ Comment fonctionne ce programme ?
       window.getMonthName = getMonthName;
       window.getMonthNumber = getMonthNumber;
     }
-    
+
     buildMonthNameModule();
 
     show(getMonthName(11));
-       
-**Quels sont les problèmes de cette modularité ?** 
+
+**Quels sont les problèmes de cette modularité ?**
 
 1 Supprimer les déclarations multiples (chaque déclaration est source d'erreur de nom)
-    
+
     function register(publicFunc) {
       forEachIn(publicFunc, function(name, value) {
          window[name] = value;
       });
     }
-    
+
     function buildMonthNameModule() {
       var names = ["January", "February", "March", "April",
                "May", "June", "July", "August", "September",
@@ -467,13 +480,13 @@ Comment fonctionne ce programme ?
         }
       });
      }   
-     
+
      buildMonthNameModule();
      console.log(getMonthName(11));
 
 2 Supprimer la fonction déclarée au top niveau
     En la rendant anonyme et en l'exécutant. Pour l'exécuter, il faut y mettre quelques parenthèses !!!
-    
+
     (function() {
       var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
                "Thursday", "Friday", "Saturday"];
@@ -530,7 +543,7 @@ Javascript est certainement aujourd'hui le plus gros ecosystème numérique. Il 
 
 - Développement d'applications :   
   * n'importe qui peut développer en Javascript, et l'exécuter sans 'temps mort'.
-  * Démarrer par les interfaces Web permet d'avoir un MVP[^1] tiré par l'usage (UX). 
+  * Démarrer par les interfaces Web permet d'avoir un MVP[^1] tiré par l'usage (UX).
   * L'infrastructure nodejs[^2] permet d'envisager des développements logiciels monolangages de bout en bout. LinkedIn, NetFlix, Paypal
 - Développement de plugins : (Nature fonctionnelle)
   * Les fonctions basiques sont développés de manière autonomes. Certains plugins sont maintenant incontournables :
@@ -538,12 +551,12 @@ Javascript est certainement aujourd'hui le plus gros ecosystème numérique. Il 
     * underscore
     * bootstrap
   * Nombreux gestionnaires de bibliothèques : bower (client), npm (serveur), require, standardisation des modules
-- Intégration dans tous les grands systèmes : facebook, linkedin 
-- Infrastructures de référence : angularjs, amberjs, phonegap, cordovajs, 
+- Intégration dans tous les grands systèmes : facebook, linkedin
+- Infrastructures de référence : angularjs, amberjs, phonegap, cordovajs,
 - Runtime : os, nodejs, v8, navigateurs
   * Navigateurs Web : fixe, tablettes, smartphone
   * Machines virtuelles : v8, fantomjs
-  * Systèmes d'exploitation 
+  * Systèmes d'exploitation
 - Sur Langages : coffeescript, typescript
 
 ---
