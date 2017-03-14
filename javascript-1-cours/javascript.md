@@ -1,6 +1,6 @@
 # JavaScript
 ---
-Ce TD suppose une connaissance initiale en programmation impérative C et en approche objet Java. 
+Ce TD suppose une connaissance initiale en programmation impérative C et en approche objet Java.
 
 Mars 2014 - [Stéphane Frénot](mailto:stephane.frenot@insa-lyon.fr), INSA Lyon / Telecom
 
@@ -14,11 +14,8 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 
 **Avez-vous une idée de la raison ?**
 
-## Un langage 'classique' basé sur des fonctions et des algorithmes
-On parle de langage impératif, car vous explicitez les algorithmes de traitement que vous voulez exécuter.
 
 ### Lancement
-
 Nous utiliserons [nodejs](http://nodejs.org), comme interpréteur de programme javascript. Il existe deux manières de l'utiliser.
 
     node // pour lancer l'interpreteur interactif
@@ -120,16 +117,16 @@ Vous allez comparer deux approches d'appel de fonction. Un appel qui renvoie dir
 Q1 Ecrire la fonction multiplie(a, b) qui renvoie le résultat d'une multiplication entre a et b.
 Ecrire le programme de test de cette fonction; Tout peut se faire dans le même fichier.
 
-Q2 Ecrire la fonction multiplieur(a, b) qui renvoie une fonction capable de réaliser la multiplication entre a et b. Puis de réaliser la même multiplication qu'auparavent.
+Q2 Ecrire la fonction multiplieur(a, b) qui renvoie une fonction capable de réaliser la multiplication entre a et b. Puis de réaliser la même multiplication qu'auparavant.
 
 Prenez une pause pour comprendre ce code et posez vos questions.
 
 ### Formes d'écriture de fonctions
-La déclaration d'un fonction test(x, y) peut s'écrire de deux manières différentes.
+La déclaration d'un fonction test(x, y) peut s'écrire de deux manières différentes. La 'déclaration de fonction' et 'l'expression de fonction'.
 Q3 Quels sont ces deux manières et à quoi cela correspond ?
 
 ### Langage fonctionnel pur ou closure ?
-Q4 Testez et expliquez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
+Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
 
     function create() {
       var reponse = 23;
@@ -140,6 +137,7 @@ Q4 Testez et expliquez le code suivant. Que faut-il ajouter au principe de fonct
     console.log(a(12))
 
 ### Scope implicite vs Objet
+Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
     function create() {
       this.reponse = 23;
       this.calc = function (x) { return x + this.reponse; }
@@ -187,11 +185,12 @@ Les tableaux existent.
 
 **Une petite remarque. Dans l'exemple précédent, que se passe t'il si on remplace :
  console.log("->" + mesAmis[i]), par console.log("->", mesAmis[i])**
+**Discutons du format JSON**
 
 ### Les méthodes ###
     doe = "Doe"
     typeof doe.toUpperCase
-    doe.toUpperCase()    
+    doe.toUpperCase()
 
 ### Les variables automatiques ###
     function arguments() {
@@ -204,12 +203,21 @@ Les tableaux existent.
 ### Les exceptions ###
 Pareil que pour java / throw + try/catch
 
-# Le sujet de la première séance s'arrête ici.
+# Le sujet de base pour la première séance s'arrête ici.
 A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
 Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
 
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
-Ce sont des fonctions qui prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
+
+Prenez un tableau de valeurs.
+Parcourez, et calculez la sommes des valeurs de trois manières.
+- 1 En utilisant la boucle for
+- 2 En utilisant la construction javascript forEach
+- 3 En utilisant la bibliothèque lodash
+
+
+
+Les fonctions d'ordre supérieur prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
 
     function afficheTableau(tableau) {
       for (i = 0; i < tableau.length; i++; ) {
