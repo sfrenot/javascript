@@ -219,14 +219,19 @@ Parcourez, et calculez la sommes des valeurs de trois manières.
 
 Les fonctions d'ordre supérieur prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
 
+Prenons l'exemple du parcours d'un tableau.
+
     function afficheTableau(tableau) {
       for (i = 0; i < tableau.length; i++; ) {
         console.log(tableau[i])
       }
     }
+** Réalisez une fonction 'logEach' qui prend un tableau en paramètre et fait un console.log sur chaque paramètre
 
-**Console.log est une fonction... Transformez donc ce code dans une fonction générique `forEach` permettant d'appliquer une fonction quelconque à tous les membres du tableau. Utilisez-là pour afficher les valeurs du tableau sur la console, puis pour faire une somme d'éléments d'un tableau**
+** Puis, transformez donc ce code dans une fonction générique `forEach` permettant d'appliquer une fonction quelconque à tous les membres du tableau. Utilisez-là pour afficher les valeurs du tableau sur la console, puis pour faire une somme d'éléments d'un tableau**
 
+
+---
 On peut donc également renvoyer une fonction. Que fait la fonction suivante ?
 
     function negate(func) {
