@@ -1,4 +1,4 @@
-(ref entre autre (https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.esf9nsnwf)[]
+(ref entre autres (https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.esf9nsnwf)[]
 
 Le mécanisme des promesses est un mécanisme de remplacement aux callback afin de rendre le code plus fluide. Le mécanisme des callback est un mécanisme de bas-niveau, proche de l'assembleur Javascript capable de gérer les événement asynchrone de la boucle événementielle JavaScript. (cf TD2). 
 
