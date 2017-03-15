@@ -8,9 +8,9 @@ console.log("->", multiplie(5, 6));
 //
 
 function multiplieur(a, b) {
-  return function(n) { return multiplie(a, b) * n; }
+  return function() { return multiplie(a, b); }
 }
 
 x = multiplieur(5, 6);
-console.log("->", x(4));
+console.log("->", x());
 
