@@ -15,6 +15,8 @@ La notion de promesse existe dans le principe de futures présent dans des langa
 Dans le monde Javascript elles sont arrivées avec le module async de jQuery, puis le framework Dojo ajoutera la bibliothèque Deferred. Rapidement une spécification de standardisation émerge (Promise/A) qui deviendra plus tard Promise/A+. Ajourd'hui une implantation de référence est [bluebird](http://bluebirdjs.com/docs/getting-started.html)
 
 # Première promesse
+
+```Javascript
 Promise = require('bluebird');
 
 wait = function(time) {
@@ -25,6 +27,7 @@ wait = function(time) {
 } 
 
 wait(3000).then(function() { console.log('Bonjour');})
+```
 
 Q2 Tester, lire et comprendre ce code...
 
