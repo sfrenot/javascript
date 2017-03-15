@@ -18,7 +18,7 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 
 ### Installation
 Nous utiliserons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript. 
-Installez nodeJs dans votre environnement. En cas de doute sur l'installation d'un interpréteur allez [ici](https://github.com/sfrenot/javascript/blob/master/install/InstallInterpreteur.md). Pour les TP TC, vous pouvez trouver un tgz de node [ici](https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz).
+Installez nodeJs dans votre environnement. En cas de doute sur l'installation d'un interpréteur allez [ici](https://github.com/sfrenot/javascript/blob/master/install/InstallInterpreteur.md). Pour les TP TC, vous pouvez trouver un tgz de node [https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz](https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz).
 
 ### Lancement
 Il existe deux manières de l'utiliser.
