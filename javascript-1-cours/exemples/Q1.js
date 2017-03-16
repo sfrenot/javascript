@@ -13,4 +13,4 @@ function multiplieur(a, b) {
 
 x = multiplieur(5, 6);
 console.log("->", x());
-
+//
