@@ -17,7 +17,7 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 
 
 ### Installation
-Nous utiliserons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript. 
+Nous utiliserons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript.
 Installez nodeJs dans votre environnement. En cas de doute sur l'installation d'un interpréteur allez [ici](https://github.com/sfrenot/javascript/blob/master/install/InstallInterpreteur.md). Pour les TP TC, vous pouvez trouver un tgz de node [https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz](https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz).
 
 ### Lancement
@@ -161,7 +161,6 @@ Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
     console.log(moins(3, 2, 4, 8));
     console.log(moins(2));
 
-
 ### Allons, respirons un peu avec les objets et les tableaux
 Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs.
 Q5 : Pourquoi est-ce un objet ?
@@ -187,7 +186,6 @@ Les tableaux existent.
     tesAmis.push(1);
     tesAmis.push('leon');
 
-
 **Une petite remarque. Dans l'exemple précédent, que se passe t'il si on remplace :
  console.log("->" + mesAmis[i]), par console.log("->", mesAmis[i])**
 **Discutons du format JSON**
@@ -208,10 +206,6 @@ Les tableaux existent.
 ### Les exceptions ###
 Pareil que pour java / throw + try/catch
 
-# Le sujet de base pour la première séance s'arrête ici.
-A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
-Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
-
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
 
 Prenez un tableau de valeurs.
@@ -220,6 +214,9 @@ Parcourez, et calculez la sommes des valeurs de trois manières.
 - 2 En utilisant la construction javascript forEach
 - 3 En utilisant la bibliothèque lodash
 
+# Le sujet de base pour la première séance s'arrête ici.
+A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
+Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
 
 
 Les fonctions d'ordre supérieur prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
