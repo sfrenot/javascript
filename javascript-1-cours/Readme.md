@@ -143,6 +143,8 @@ Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonct
 
 ### Scope implicite vs Objet
 Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
+
+
     function create() {
       this.reponse = 23;
       this.calc = function (x) { return x + this.reponse; }
