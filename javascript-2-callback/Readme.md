@@ -27,20 +27,22 @@ Ecrire et lancer le programme suivant :
 Avez-vous des commentaires ?
 
 Ecrire le nouveau programme suivant :
-		function test(f) {
-		  for (var i = 0; i < 20; i++) {
-		    console.log("coucou", i);
-		  }
-		  f("termine");
-		}
 
-		console.log("Debut");
 
-		test(function(message) {
-		  console.log("->", message);
-		});
+	function test(f) {
+	  for (var i = 0; i < 20; i++) {
+	    console.log("coucou", i);
+	  }
+	  f("termine");
+	}
 
-		console.log("Fin")
+	console.log("Debut");
+
+	test(function(message) {
+	  console.log("->", message);
+	});
+
+	console.log("Fin")
 
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
 
