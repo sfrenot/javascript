@@ -40,14 +40,14 @@ Essayez de lire et de comprendre le code Q2.js avant de le lancer. Puis comparez
 # Réorganisation du flow
 Réorganisez le flow de promesses afin de faire la première puis la seconde.
 
-# Ouvrir le code Q4 
+# Ouvrir le code Q4
 Donnez une explication probable de ce que vous voyez...
 
 # Transmission de résultat
 Dans l'exemple Q4, on veux maintenant récupérer un résultat issu de la promesse. Modifiez le code pour transmettre un résultat. (Cette question, peut être complexe).
 
 # Flow de promesses
-Lire l'exemple Q5 et anticipez ce qui va se passer.
+Lire l'exemple Q6 et anticipez ce qui va se passer.
 
 # Enfin on va utiliser tout cela...
 En utilisant le module npm request-promise, réalisez un crawler web. Un outil qui, à partir d'une url, recherche toutes les pages filles. La recherche des pages filles doit se faire en utilisant un Promise.all.
