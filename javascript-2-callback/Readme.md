@@ -27,20 +27,22 @@ Ecrire et lancer le programme suivant :
 Avez-vous des commentaires ?
 
 Ecrire le nouveau programme suivant :
-		function test(f) {
-		  for (var i = 0; i < 20; i++) {
-		    console.log("coucou", i);
-		  }
-		  f("termine");
-		}
 
-		console.log("Debut");
 
-		test(function(message) {
-		  console.log("->", message);
-		});
+	function test(f) {
+	  for (var i = 0; i < 20; i++) {
+	    console.log("coucou", i);
+	  }
+	  f("termine");
+	}
 
-		console.log("Fin")
+	console.log("Debut");
+
+	test(function(message) {
+	  console.log("->", message);
+	});
+
+	console.log("Fin")
 
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
 
@@ -48,22 +50,23 @@ Quelles sont les différences par rapport au programme initial ? Avez-vous des c
 Nous allons maintenant transformer le programme suivant, pour qu'il devienne asynchrone...
 
 Copiez et exécutez le code suivant.
-		function test(f) {
-		  setTimeout(function () {
-		    for (var i = 0; i < 20; i++) {
-		      console.log("coucou", i);
-		    }
-		    f();
-		  })
-		}
 
-		console.log("Debut");
+	function test(f) {
+	  setTimeout(function () {
+	    for (var i = 0; i < 20; i++) {
+	      console.log("coucou", i);
+	    }
+	    f();
+	  })
+	}
 
-		test(function(message) {
-		  console.log("-> Terminé");
-		});
+	console.log("Debut");
 
-		console.log("Fin")
+	test(function(message) {
+	  console.log("-> Terminé");
+	});
+	
+	console.log("Fin")
 
 Lancez et exécutez le code suivant. Avez-vous compris ce qu'il vient de se passer ?
 
