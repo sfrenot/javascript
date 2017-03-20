@@ -50,22 +50,23 @@ Quelles sont les différences par rapport au programme initial ? Avez-vous des c
 Nous allons maintenant transformer le programme suivant, pour qu'il devienne asynchrone...
 
 Copiez et exécutez le code suivant.
-		function test(f) {
-		  setTimeout(function () {
-		    for (var i = 0; i < 20; i++) {
-		      console.log("coucou", i);
-		    }
-		    f();
-		  })
-		}
 
-		console.log("Debut");
+	function test(f) {
+	  setTimeout(function () {
+	    for (var i = 0; i < 20; i++) {
+	      console.log("coucou", i);
+	    }
+	    f();
+	  })
+	}
 
-		test(function(message) {
-		  console.log("-> Terminé");
-		});
+	console.log("Debut");
 
-		console.log("Fin")
+	test(function(message) {
+	  console.log("-> Terminé");
+	});
+	
+	console.log("Fin")
 
 Lancez et exécutez le code suivant. Avez-vous compris ce qu'il vient de se passer ?
 
