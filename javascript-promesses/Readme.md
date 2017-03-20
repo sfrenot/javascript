@@ -12,7 +12,7 @@ Une promesse, commme son nom l'indique, est un objet qui peut produire une valeu
 
 La notion de promesse existe dans le principe de futures présent dans des langages comme MultiLisp ou Concurrent Prolog dès les années 80. L'utilisation du terme promesse vient du papier de Barbara Liskov et Liuba Shrira de 88 : “Promises: Linguistic Support for Efficient Asynchronous Procedure Calls in Distributed Systems”. Proceedings of the SIGPLAN ’88 Conference on Programming Language Design and Implementation; Atlanta, Georgia, United States, pp. 260–267. ISBN 0–89791–269–1, published by ACM. Also published in ACM SIGPLAN Notices, Volume 23, Issue 7, July 1988.
 
-Dans le monde Javascript elles sont arrivées avec le module async de jQuery, puis le framework Dojo ajoutera la bibliothèque Deferred. Rapidement une spécification de standardisation émerge (Promise/A) qui deviendra plus tard Promise/A+. Ajourd'hui une implantation de référence est [bluebird](http://bluebirdjs.com/docs/getting-started.html)
+Dans le monde Javascript elles sont arrivées avec le module async de jQuery, puis le framework Dojo ajoutera la bibliothèque Deferred. Rapidement une spécification de standardisation émerge (Promise/A) qui deviendra plus tard Promise/A+. Ajourd'hui l'implantation de référence est [bluebird](http://bluebirdjs.com/docs/getting-started.html)
 
 # Première promesse
 
@@ -40,7 +40,8 @@ Essayez de lire et de comprendre le code Q2.js avant de le lancer. Puis comparez
 # Réorganisation du flow
 Réorganisez le flow de promesse afin de faire la première puis la seconde. 
 
-# Ouvrir le code Q4 est donnez une explication probable de ce que vous voyez...
+# Ouvrir le code Q4 
+Donnez une explication probable de ce que vous voyez...
 
 # Transmission de résultat
 Dans l'exemple Q4, veux maintenant récupérer un résultat issu de la promesse. Modifiez le code pour transmettre le résultat. (Cette question, peut être complexe).
