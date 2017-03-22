@@ -14,7 +14,7 @@ wait = function(time) {
 wait(2000)
 .then(
   function() {
-    return wait(4000);
+    wait(4000);
   })
 .then(function() {
   console.log('cool');
