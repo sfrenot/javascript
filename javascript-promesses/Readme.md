@@ -49,6 +49,13 @@ Dans l'exemple Q4, on veux maintenant récupérer un résultat issu de la promes
 # Flow de promesses
 Lire l'exemple Q6 et anticipez ce qui va se passer.
 
+# Que valide ce code ?
+```Javascript
+console.log("start");
+Promise.resolve('Bonjour').then(console.log)
+console.log("End")
+```
+
 # Enfin on va utiliser tout cela...
 En utilisant le module npm request-promise, réalisez un crawler web. Un outil qui, à partir d'une url, recherche toutes les pages filles. La recherche des pages filles doit se faire en utilisant un Promise.all.
 

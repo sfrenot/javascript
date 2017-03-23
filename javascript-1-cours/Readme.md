@@ -7,9 +7,9 @@ Mars 2014 - [Stéphane Frénot](mailto:stephane.frenot@insa-lyon.fr), INSA Lyon 
 JavaScript est un langage de programmation initialement introduit dans les navigateurs Web afin de rendre les pages HTML plus dynamiques dans leurs interactions avec l'utilisateur. Des optimisations en performances lui ont permis de se hisser comme un langage de programmation efficace aussi bien au niveau du client qu'au niveau du serveur. Il est nécessaire dans une cadre d'ingénieurie informatique de bien connaitre ce langage dans le contexte du Web actuel, car vous serez nécessairement confronté un jour à son utilisation. S'il est souvent présenté comme un langage mal conçu, il est en passe de devenir le langage de référence d'Internet. Certains groupes comme Google ont véritablement parié sur ce langage autant que sur l'alternative Java par exemple. Ce cours essaye d'expliquer rapidement le contexte d'utilisation de JavaScript afin d'en comprendre les pièges et les freins initiaux.
 
 Un cours de synthèse : [Damien Reimert](http://cours.reimert.fr/javascript.html#)  
-Un autre cours : [Stéphane Frénot](http://perso.citi.insa-lyon.fr/sfrenot/cours/TSE-2016/JavaScriptTSE-html)  
+Un autre cours : [Stéphane Frénot](http://perso.citi.insa-lyon.fr/sfrenot/cours/TSE-2016/JavaScriptTSE-html)
 
-    Le livre à lire est : [Eloquent Javascript](http://eloquentjavascript.net/)  
+Le livre à lire est : [Eloquent Javascript](http://eloquentjavascript.net/Eloquent_JavaScript.pdf)  
 
 JavaScript est un langage faiblement typé, avec peu de contrôle.
 
