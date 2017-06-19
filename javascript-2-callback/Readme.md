@@ -12,38 +12,39 @@ L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de compr
 ## Exercice liminaire
 Ecrire et lancer le programme suivant :
 
-		function test() {
-		  for (var i = 0; i < 20; i++) {
-		    console.log("coucou", i);
-		  }
-		  return "termine";
-		}
+```javascript
+function test() {
+  for (var i = 0; i < 20; i++) {
+    console.log("coucou", i);
+  }
+  return "termine";
+}
 
-		console.log("Debut");
-		result = test();
-		console.log("->", result);
-		console.log("Fin");
-
+console.log("Debut");
+result = test();
+console.log("->", result);
+console.log("Fin");
+```
 Avez-vous des commentaires ?
 
 Ecrire le nouveau programme suivant :
 
+```javascript
+function test(f) {
+  for (var i = 0; i < 20; i++) {
+    console.log("coucou", i);
+  }
+  f("termine");
+}
 
-	function test(f) {
-	  for (var i = 0; i < 20; i++) {
-	    console.log("coucou", i);
-	  }
-	  f("termine");
-	}
+console.log("Debut");
 
-	console.log("Debut");
+test(function(message) {
+  console.log("->", message);
+});
 
-	test(function(message) {
-	  console.log("->", message);
-	});
-
-	console.log("Fin")
-
+console.log("Fin")
+```
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
 
 ## Exécution synchrone et asynchrone
@@ -51,23 +52,24 @@ Nous allons maintenant transformer le programme suivant, pour qu'il devienne asy
 
 Copiez et exécutez le code suivant.
 
-	function test(f) {
-	  setTimeout(function () {
-	    for (var i = 0; i < 20; i++) {
-	      console.log("coucou", i);
-	    }
-	    f();
-	  })
-	}
+```javascript
+function test(f) {
+  setTimeout(function () {
+    for (var i = 0; i < 20; i++) {
+      console.log("coucou", i);
+    }
+    f();
+  })
+}
 
-	console.log("Debut");
+console.log("Debut");
 
-	test(function(message) {
-	  console.log("-> Terminé");
-	});
-	
-	console.log("Fin")
+test(function(message) {
+  console.log("-> Terminé");
+});
 
+console.log("Fin")
+```
 Lancez et exécutez le code suivant. Avez-vous compris ce qu'il vient de se passer ?
 
 --> Philip Roberts  
