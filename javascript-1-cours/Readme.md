@@ -17,13 +17,14 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 
 ### Installation
 Nous utilisons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript. Si vous utilisez les machines du département, je vous recommande d'installer node sur le répertoire /tmp de la machine de connexion.
-
+```bash
     cd /tmp
     wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz
     tar xvf ./node-v8.9.4-linux-x64.tar.xz
     echo "export PATH=$PATH:/tmp/node-v8.9.4-linux-x64/bin" >> ~/.bashrc
     . ~/.bashrc
     cd
+```
 
 ** Avez-vous compris ces lignes ?**
 
@@ -47,18 +48,21 @@ Il n'existe pas de programme 'le plus simple' car il n'y a aucune contrainte imp
     Safari : Cmd+alt+c
 
 ou utiliser nodejs en mode interactif.
-
-    i = 1
-    console.log("coucou " + i)
+```javascript
+i = 1
+console.log("coucou " + i)
+  ```
 
 **Essayez donc ce programme dans les deux modes**   
 **Quels sont vos commentaires ?**
 
 Vous pouvez également lancer ce programme dans votre navigateur Web préféré. Soit avec la console interactive, soit en écrivant une page html qui charge le script.
 
-    <html>
-       <script src="./toto.js"></script>
-    </html>
+```html
+<html>
+   <script src="./toto.js"></script>
+</html>
+```
 
 ### Les types de données
 Une variable n'a pas a être déclarée, elle sera 'typé' en fonction de son usage.
@@ -71,8 +75,10 @@ Une variable n'a pas a être déclarée, elle sera 'typé' en fonction de son us
 
 Une variable peut être déclarée avant son usage avec le mot clé let. Elle est alors initialisée à "undefined".
 
-    let x
-    console.log(x)
+```javascript
+let x
+console.log(x)
+```
 
 Q0 : testez le type RE avec la fonction JS test().
 Q0.1 : Où trouver de la documentation ?
@@ -89,11 +95,13 @@ javascript possède des structures de contrôle algorithmiques comme tous les la
 ### Les fonctions
 javascript permet de capturer les algorithmes dans des fonctions. Le programme initial (votre navigateur ou votre interpréteur javascript) est également une fonction.
 
+```javascript
     function somme(a, b) {
        return a+b
     }
 
     console.log(somme(2,3))
+```
 
 _Les ';' sont optionnels si vous avez une instruction par ligne. Mais on est souvent habitué à mettre un ';'_
 
@@ -101,24 +109,31 @@ _Les ';' sont optionnels si vous avez une instruction par ligne. Mais on est sou
 
 Les fonctions s'écrivent de trois manières :
 
-    1. La déclaration de fonction
+* La déclaration de fonction
+```javascript
+
         function toto(x) {
           console.log("->", x);
         }
+```
 
 toto est nommé explicitement, la fonction est disponible dès le lancement du script. L'invocation se fait par `toto('coucou')`.
 
-    2. L'expression de fonction
+* L'expression de fonction
+```javascript
          let a = function (x) {
            console.log("-->", x);
          }
+```
 
 La fonction est anonyme, mais elle est associée à la variable `a`. Elle n'est disponible qu'à partir de sa déclaration. L'invocation se fait par `a('coucou')`.
 
-    3. l'expression de fonction avec l'opérateur flèche
+* l'expression de fonction avec l'opérateur flèche
+```javascript
     let a = (x) => {
       console.log("--->",x );
     }
+```
 
 C'est une écriture strictement équivalente à l'expression de fonction mais qui permet de compacter les écritures. L'invocation est donc la même.
 
@@ -132,7 +147,7 @@ Javascript est un langage issu de la communauté des langages fonctionnels stric
 ### Avant d'aller dans les détails fonctionnels
 Evacuons un côté humoristique de javascript.
 
-```    
+```javascript
 null == undefined
 false == 0
 "" == 0
@@ -144,28 +159,33 @@ false == 0
 **Rejouez les tests avec ===**
 
 Solution de fermat
-```
+```javascript
 Math.pow(57055, 3) + Math.pow(339590, 3) == Math.pow(340126, 3)
 ```
 
 Quelques codes désagréables
 
+```javascript
     "Appolo" + 5
     null + "ify"
     "5" * 5
     "strawberry" * 5
-
+```
 **Comment "blinder" tout cela ?**
 
 ### Bon, passons aux choses sérieuses avec nos fonctions
 Une variable peut être de type fonction (et c'est là que cela va commencer à faire mal à la tête.)
 
+```javascript
     let a = function(a,b) { return a + b }
     console.log(a(4,5))
+```
 
 Et évidemment, on peut maintenant tout casser, car on peut mettre n'importe quoi dans une fonction. En gros il n'y aucune règle.
 
+```javascript
     console.log = "a"
+```
 
 ## Comparons deux programmes de multiplications
 Vous allez comparer deux approches d'appel de fonction. Un appel qui renvoie directement le résultat d'un calcul et un appel qui renvoie une fonction capable de calculer un résultat.
@@ -181,6 +201,7 @@ Prenez une pause pour comprendre ce code et posez vos questions.
 ### Langage fonctionnel pur ou closure ?
 Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
 
+```javascript
     function create() {
       let reponse = 23;
       return function (x) { return x + reponse; }
@@ -188,10 +209,12 @@ Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonct
 
     let a = create()
     console.log(a(12))
+```
 
 ### Scope implicite vs Objet
 Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
 
+```javascript
     function create() {
       this.reponse = 23;
       this.calc = function (x) { return x + this.reponse; }
@@ -199,9 +222,10 @@ Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
 
     let a = new create()
     console.log(a.calc(12))
-
+```
 ### Nombre de paramètres d'une fonction et principe de curryfication.
 
+```javascript
     function moins(a, b, c) {
       return (a - b);
     }
@@ -209,11 +233,12 @@ Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
     console.log(moins(3, 2));
     console.log(moins(3, 2, 4, 8));
     console.log(moins(2));
+```
 
 ### Allons, respirons un peu avec les objets et les tableaux
 Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs.
 Q5 : Pourquoi est-ce un objet ?
-
+```javascript
     let chose = { "hello" : "coucou", 3:10}
     chose["3"];
     -> 10
@@ -224,9 +249,9 @@ Q5 : Pourquoi est-ce un objet ?
     for (o in chose) {
       console.log( o + '->' + chose[o])
     }
-
+```
 Les tableaux existent.
-
+```javascript
     mesAmis = ["bob", "raoul", "louis"]
     for (i = 0; i < mesAmis.length; i++) {
       console.log("->" + mesAmis[i]);
@@ -234,22 +259,30 @@ Les tableaux existent.
     tesAmis = new Array();
     tesAmis.push(1);
     tesAmis.push('leon');
-
+```
 **Une petite remarque. Dans l'exemple précédent, que se passe t'il si on remplace :
- console.log("->" + mesAmis[i]), par console.log("->", mesAmis[i])**
+
+```javascript
+console.log("->" + mesAmis[i])
+par
+console.log("->", mesAmis[i])
+```
 **Discutons du format JSON**
 
 ### Les méthodes ###
+```javascript
     doe = "Doe"
     typeof doe.toUpperCase
     doe.toUpperCase()
+```
 
 ### Les variables automatiques ###
+```javascript
     function arguments() {
       return "Vous avez fourni " + arguments.length + " arguments.";
     }
     arguments(1, 2, 3, "toto")
-
+```
 ***Une remarque particulière sur le code précédent ?***
 
 ### Les exceptions ###
@@ -258,10 +291,38 @@ Pareil que pour java / throw + try/catch
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
 
 Prenez un tableau de valeurs.
-Parcourez, et calculez la sommes des valeurs de trois manières.
+Parcourez, et afficher les  valeurs de trois manières.
 - 1 En utilisant la boucle for
 - 2 En utilisant la construction javascript forEach
+
+Une fois que les deux premiers exemples sont traités, nous passons à l'utilsation d'un module externe.
 - 3 En utilisant la bibliothèque lodash
+
+Pour utiliser lodash, il faut utiliser un module externe. L'outil de gestion s'appelle npm pour Node Package Manager. Nous le détaillerons plus tard.
+
+npm quick and dirty
+----
+L'utilisation d'un module se fait en trois étapes.
+1. Installation du module dans l'environnement
+2. Déclaration d'une variable associée à l'objet représentant le module
+3. Utilisation des fonctions fournies
+
+On va donc utiliser lodash pour parcourir le tableau.
+
+Chercher sur Internet la documentation de lodash, et trouvez la fonction de parcours de collection.
+
+```javascript
+1. Installation du module lodash avec npm
+npm install lodash
+
+2. Déclaration de la variable de manipulation de la bibliothèque
+_ = require('lodash'); // Require est une fonction node, qui permet de charger un 'module'. Npm est un gestionnaire de module externe.
+
+3. Utilisation d'une fonction fournie
+_.sortBy([1, 4, 3]); // '_' est le nom de la variable que vous avez choisi pour représenter la librairie lodash dans votre programme ou votre environnement d'exécution
+```
+
+Comparez les trois approches de parcours de la collection. 
 
 # Le sujet de base pour la première séance s'arrête ici.
 A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
