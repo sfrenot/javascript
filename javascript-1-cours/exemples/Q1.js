@@ -7,10 +7,10 @@ console.log("->", multiplie(5, 6));
 
 //
 
-function multiplieur(a, b) {
-  return function() { return multiplie(a, b); }
+function multiplieur(a) {
+  return function(b) { return multiplie(a, b); }
 }
 
-x = multiplieur(5, 6);
-console.log("->", x());
+x = multiplieur(5);
+console.log("->", x(6));
 //

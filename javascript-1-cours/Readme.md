@@ -15,18 +15,38 @@ JavaScript est un langage faiblement typé, avec peu de contrôle.
 
 **Avez-vous une idée de la raison ?**
 
-
 ### Installation
-Nous utiliserons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript.
-Installez nodeJs dans votre environnement. En cas de doute sur l'installation d'un interpréteur allez [ici](https://github.com/sfrenot/javascript/blob/master/install/InstallInterpreteur.md). Pour les TP TC, vous pouvez trouver un tgz de node [https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz](https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz).
+Nous utilisons [nodejs](http://nodejs.org), comme interpréteur de programme JavaScript. Si vous utilisez les machines du département, je vous recommande d'installer node sur le répertoire /tmp de la machine de connexion.
+
+    cd /tmp
+    wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz
+    tar xvf ./node-v8.9.4-linux-x64.tar.xz
+    echo "export PATH=$PATH:/tmp/node-v8.9.4-linux-x64/bin" >> ~/.bashrc
+    . ~/.bashrc
+    cd
+
+** Avez-vous compris ces lignes ?**
+
+L'interpreteur se lance avec la commande `node`.
 
 ### Lancement
 Il existe deux manières de l'utiliser.
 
     node // pour lancer l'interpreteur interactif
-    node toto.js // pour lancer un script javascript
+    node toto.js // pour lancer un script écrit dans un fichier
 
-Il n'existe pas de programme 'le plus simple' car il n'y a aucune contrainte imposée par le langage. Par exemple, il n'y a pas de phase de compilation, ou de contrôle. Voici un exemple de programme simple. (Evidemment, on peut faire plus simple). Pour voir le résultat d'exécution, vous pouvez ouvrir la console javascript dans votre navigateur ou utiliser nodejs en mode interactif.
+Il n'existe pas de programme 'le plus simple' car il n'y a aucune contrainte imposée par le langage. Par exemple, il n'y a pas de phase de compilation, ou de contrôle. Voici un exemple de programme simple. (Evidemment, on peut faire plus simple). Pour voir le résultat d'exécution, vous pouvez ouvrir la console javascript dans votre navigateur
+
+    Chrome :
+      Mac : Cmd+alt+j
+      Windows : Ctrl+Maj+j
+    Firefox :
+      Mac : Cmd+alt+k
+      Windows : Ctrl+Maj+k
+    Internet Explorer : F12
+    Safari : Cmd+alt+c
+
+ou utiliser nodejs en mode interactif.
 
     i = 1
     console.log("coucou " + i)
@@ -44,16 +64,21 @@ Vous pouvez également lancer ce programme dans votre navigateur Web préféré.
 Une variable n'a pas a être déclarée, elle sera 'typé' en fonction de son usage.
 
     1. numériques : i = 2012 //Attention la limite est de 2^52 (10^15)
-    2. string : a = "coucou"    
+    2. string : a = "coucou"
     3. booleen : b = true
+    4. fonction : c = function () {}
+    5. expression régulière : d = /a/
 
-Une variable peut être déclarée avant son usage avec le mot clé var. Elle est alors initialisée à "undefined".
+Une variable peut être déclarée avant son usage avec le mot clé let. Elle est alors initialisée à "undefined".
 
-    var x
+    let x
     console.log(x)
 
+Q0 : testez le type RE avec la fonction JS test().
+Q0.1 : Où trouver de la documentation ?
+
 ### Les structures de controle
-javascript possède des structures de controle algorithmiques comme tous les langages.
+javascript possède des structures de contrôle algorithmiques comme tous les langages.
 
     if / else if / else
     while ()
@@ -74,6 +99,33 @@ _Les ';' sont optionnels si vous avez une instruction par ligne. Mais on est sou
 
 **Ecrire le programme correspondant à somme en javascript et en Java, exécuter. Quels sont vos commentaires ?**
 
+Les fonctions s'écrivent de trois manières :
+
+    1. La déclaration de fonction
+        function toto(x) {
+          console.log("->", x);
+        }
+
+toto est nommé explicitement, la fonction est disponible dès le lancement du script. L'invocation se fait par `toto('coucou')`.
+
+    2. L'expression de fonction
+         let a = function (x) {
+           console.log("-->", x);
+         }
+
+La fonction est anonyme, mais elle est associée à la variable `a`. Elle n'est disponible qu'à partir de sa déclaration. L'invocation se fait par `a('coucou')`.
+
+    3. l'expression de fonction avec l'opérateur flèche
+    let a = (x) => {
+      console.log("--->",x );
+    }
+
+C'est une écriture strictement équivalente à l'expression de fonction mais qui permet de compacter les écritures. L'invocation est donc la même.
+
+** Dans les codes précédents, qu'est ce qu'un paramètre de fonction, qu'est-ce qu'un argument de fonction ? **
+
+Une fonction renvoie `undefined` sauf s'il est spécifié autre chose avec l'instruction `return`. L'instruction `return` arrête l'exécution de la fonction.
+
 ## Un langage 'avancé' basé sur les fonctions
 Javascript est un langage issu de la communauté des langages fonctionnels stricts (scheme). Il présente une caractéristique forte d'être compatible avec ce paradigme (sans la notion de pureté). C'est à dire que les fonctions sont des éléments de premier ordre, au même niveau que les variables. Ainsi une variable peut être de type fonction, et une fonction peut être passée en paramètre à une autre fonction ou passée comme retour de fonction.
 
@@ -91,12 +143,12 @@ false == 0
 **La solution est...**
 **Rejouez les tests avec ===**
 
-Quelques codes désagréables
+Solution de fermat
+```
+Math.pow(57055, 3) + Math.pow(339590, 3) == Math.pow(340126, 3)
+```
 
-    var peutEtreNull = null;
-    if (peutEtreNull) {
-      console.log("Peut etre nul")
-    }
+Quelques codes désagréables
 
     "Appolo" + 5
     null + "ify"
@@ -106,9 +158,9 @@ Quelques codes désagréables
 **Comment "blinder" tout cela ?**
 
 ### Bon, passons aux choses sérieuses avec nos fonctions
-Une variable peut être de type fonction (et c'est là que ca va commencer à faire mal à la tête.)
+Une variable peut être de type fonction (et c'est là que cela va commencer à faire mal à la tête.)
 
-    var a = function(a,b) { return a + b }
+    let a = function(a,b) { return a + b }
     console.log(a(4,5))
 
 Et évidemment, on peut maintenant tout casser, car on peut mettre n'importe quoi dans une fonction. En gros il n'y aucune règle.
@@ -120,37 +172,32 @@ Vous allez comparer deux approches d'appel de fonction. Un appel qui renvoie dir
 
 ### Calcul direct, indirect foncteur
 Q1 Ecrire la fonction multiplie(a, b) qui renvoie le résultat d'une multiplication entre a et b.
-Ecrire le programme de test de cette fonction; Tout peut se faire dans le même fichier.
+Ecrire le programme de test de cette fonction. Tout peut se faire dans le même fichier.
 
-Q2 Ecrire la fonction multiplieur(a, b) qui renvoie une fonction capable de réaliser la multiplication entre a et b. Puis de réaliser la même multiplication qu'auparavant.
+Q2 Ecrire la fonction multiplieur(a) qui renvoie une fonction capable de réaliser la multiplication par a. Invoquer cette fonction avec b en paramètre. Réalisez la même multiplication qu'auparavant.
 
 Prenez une pause pour comprendre ce code et posez vos questions.
-
-### Formes d'écriture de fonctions
-La déclaration d'un fonction test(x, y) peut s'écrire de deux manières différentes. La 'déclaration de fonction' et 'l'expression de fonction'.
-Q3 Quels sont ces deux manières et à quoi cela correspond ?
 
 ### Langage fonctionnel pur ou closure ?
 Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
 
     function create() {
-      var reponse = 23;
+      let reponse = 23;
       return function (x) { return x + reponse; }
     }
 
-    var a = create()
+    let a = create()
     console.log(a(12))
 
 ### Scope implicite vs Objet
 Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
-
 
     function create() {
       this.reponse = 23;
       this.calc = function (x) { return x + this.reponse; }
     }
 
-    var a = new create()
+    let a = new create()
     console.log(a.calc(12))
 
 ### Nombre de paramètres d'une fonction et principe de curryfication.
@@ -167,7 +214,7 @@ Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
 Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs.
 Q5 : Pourquoi est-ce un objet ?
 
-    var chose = { "hello" : "coucou", 3:10}
+    let chose = { "hello" : "coucou", 3:10}
     chose["3"];
     -> 10
     chose.hello;
@@ -283,7 +330,7 @@ Le map fabrique un nouveau tableau à partir de l'application d'une fonction sur
 
 Quelques autres éléments sur la programmation fonctionnelle.
 
-    var op = {
+    let op = {
       "+": function (a, b) { return a+b; },
       "-": function (a, b) { return a-b; }
     }
@@ -291,13 +338,13 @@ Quelques autres éléments sur la programmation fonctionnelle.
     reduce (op["+"], 0, [1, 2, 3]) // On gagne la déclaration d'une fonction add
 
     function partial (func) { // La fonction construit une nouvelle fonction, avec des       paramètres partiellement fournis
-      var knownArgs = arguments;
+      let knownArgs = arguments;
       return function () {
-        var realArgs = [];
-        for (var i=1; i < knownArgs.length; i++) {
+        let realArgs = [];
+        for (let i=1; i < knownArgs.length; i++) {
           realArgs.push(knownArgs[i]);
         }  
-        for (var i=0; i<arguments.length;i ++) {
+        for (let i=0; i<arguments.length;i ++) {
           realArgs.push(arguments[i]);
         }  
         return func.apply(null, realArgs);
@@ -317,7 +364,7 @@ Quelques autres éléments sur la programmation fonctionnelle.
 ## Passons aux objets (de l'objet !!)
 Les objets en trois étapes
 
-    var lapin = {};
+    let lapin = {};
     lapin.parle = function (phrase) {
       console.log("Le lapin dit '", phrase, "'");
     }
@@ -328,8 +375,8 @@ Mais aussi
     function parle (phrase) {
       console.log("Le lapin ", this.couleur, " dit '", phrase, "'");
     }
-    var lapinBlanc = { couleur : "blanc", parle : parle };
-    var lapinNoir = { couleur : "noir", parle : parle };
+    let lapinBlanc = { couleur : "blanc", parle : parle };
+    let lapinNoir = { couleur : "noir", parle : parle };
 
     lapinBlanc.parle(" Je suis tout blanc ");
     lapinNoir.parle(" Je suis tout noir ");
@@ -351,7 +398,7 @@ On peut appliquer l'opérateur new sur une fonction. Je vous suggère d'écrire 
       };
     }
 
-    var lapinTueur = new Lapin(" tueur ");
+    let lapinTueur = new Lapin(" tueur ");
     lapinTueur.parle(" GRRRAAAAAAHHHH ");
 
     ------
@@ -361,7 +408,7 @@ On peut appliquer l'opérateur new sur une fonction. Je vous suggère d'écrire 
         parle: function(phrase) { /***/ }
       };
     }
-    var lapinNoir = fabriqueMoiUnLapin("black");
+    let lapinNoir = fabriqueMoiUnLapin("black");
 
 C'est ici qu'on découvre que javascript est un langage orienté prototype... Le prototype est un objet présent dans toutes les fonctions qui référence toute les fonctions disponibles à partir de celle-ci. Positionner une propriété n'affecte jamais le prototype. Rechercher une propriété se fait dans l'objet, puis dans le prototype, puis dans le prototype du prototype. Les prototypes sont chaînés.
 
@@ -386,7 +433,7 @@ MyConstructor = function () {
   this.a = "debut";
 }
 MyConstructor.protype.b = "fin";
-var j = new MyConstructor();
+let j = new MyConstructor();
 console.log(j.a, j.b);
 ```
 ![This](this-a.jpg "This-a")
@@ -404,9 +451,9 @@ Quand une propriété est recherchée, elle l'est dans l'objet puis dans tous le
 Un dernier détail important sur le mot clé `this` représente l'objet qui 'possède' la fonction qui s'exécute.
 
 ```
-var i = 30
+let i = 30
 function f () {
-  var i = 15;
+  let i = 15;
   console.log(i);
   console.log(this.i);
 }
@@ -419,14 +466,14 @@ Tous les objets possèdent des propriétés. Les leurs, celles des prototypes, e
 
 Exemple 1
 
-    var lesEtudiants = {};
+    let lesEtudiants = {};
     if ("constructor" in lesEtudiants) {
        console.log("Oui, il y a un étudiants qui s'appelle 'constructor'");
     }
 
 Exemple 2 : Ecrire une fonction qui permet de lister les proprietés d'un objet.
 
-    var test = {x:10, y:3};
+    let test = {x:10, y:3};
     console.log(test.properties());
 
 On est sauvé avec la methode hasOwnProperty qui permet de vérifier que la propriété est véhiculé par l'objet et non pas par son prototype.
@@ -434,13 +481,13 @@ On est sauvé avec la methode hasOwnProperty qui permet de vérifier que la prop
 On peut donc ecrire le programme fonctionnel suivant :
 
     function forEachIn(object, action) {
-      for (var property in object) {
+      for (let property in object) {
         if (object.hasOwnProperty(property))
           action(property, object[property]);
       }
     }
 
-    var etudiants = {"sfrenot" : {nom: "frenot", prenom : "stephane", age : "22"},
+    let etudiants = {"sfrenot" : {nom: "frenot", prenom : "stephane", age : "22"},
                      "lmametz" : {nom: "mametz", prenom : "laurent"}};
     forEachIn(etudiants, function(name, value) {
       console.log("nom : ", name, " -> valeur ", value);
@@ -455,14 +502,14 @@ On veut faire un 'module' qui 'exporte' deux fonctions publiques de conversion.
 Comment fonctionne ce programme ?
 
     function buildMonthNameModule() {
-      var names = ["January", "February", "March", "April",
+      let names = ["January", "February", "March", "April",
                "May", "June", "July", "August", "September",
                "October", "November", "December"];
       function getMonthName(number) {
         return names[number];
       }
       function getMonthNumber(name) {
-        for (var number = 0; number < names.length; number++) {
+        for (let number = 0; number < names.length; number++) {
           if (names[number] == name)
             return number;                    }
       }
@@ -486,7 +533,7 @@ Comment fonctionne ce programme ?
     }
 
     function buildMonthNameModule() {
-      var names = ["January", "February", "March", "April",
+      let names = ["January", "February", "March", "April",
                "May", "June", "July", "August", "September",
                "October", "November", "December"];
       register ({
@@ -494,7 +541,7 @@ Comment fonctionne ce programme ?
           return names[number];
         },
         getMonthNumber: function(name) {
-          for (var number = 0; number < names.length; number++) {
+          for (let number = 0; number < names.length; number++) {
             if (names[number] == name)
               return number;
           }
@@ -509,14 +556,14 @@ Comment fonctionne ce programme ?
     En la rendant anonyme et en l'exécutant. Pour l'exécuter, il faut y mettre quelques parenthèses !!!
 
     (function() {
-      var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+      let names = ["Sunday", "Monday", "Tuesday", "Wednesday",
                "Thursday", "Friday", "Saturday"];
       register({
         getDayName: function(number) {
           return names[number];
         },
         getDayNumber: function(name) {
-          for (var number = 0; number < names.length; number++) {
+          for (let number = 0; number < names.length; number++) {
             if (names[number] == name)
               return number;
           }
@@ -527,7 +574,7 @@ Comment fonctionne ce programme ?
 2.1 On peut enfin passer un paramètre externe à cette fonction... Ce code vous dit-il quelque chose ?
 
     (function() {
-      var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+      let names = ["Sunday", "Monday", "Tuesday", "Wednesday",
                "Thursday", "Friday", "Saturday"];
       console.log(" $ -> ", $)
       register({
@@ -535,7 +582,7 @@ Comment fonctionne ce programme ?
           return names[number];
         },
         getDayNumber: function(name) {
-          for (var number = 0; number < names.length; number++) {
+          for (let number = 0; number < names.length; number++) {
             if (names[number] == name)
               return number;
           }
