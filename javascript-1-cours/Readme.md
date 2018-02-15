@@ -312,17 +312,23 @@ On va donc utiliser lodash pour parcourir le tableau.
 Chercher sur Internet la documentation de lodash, et trouvez la fonction de parcours de collection.
 
 ```javascript
-1. Installation du module lodash avec npm
+// 1. Installation du module lodash avec npm
 npm install lodash
 
-2. Déclaration de la variable de manipulation de la bibliothèque
-_ = require('lodash'); // Require est une fonction node, qui permet de charger un 'module'. Npm est un gestionnaire de module externe.
+// 2. Déclaration de la variable de
+//    manipulation de la bibliothèque
+_ = require('lodash'); // Require est une fonction node qui
+                       // permet de charger un 'module'.
+                       // Npm est un gestionnaire de module externe.
 
-3. Utilisation d'une fonction fournie
-_.sortBy([1, 4, 3]); // '_' est le nom de la variable que vous avez choisi pour représenter la librairie lodash dans votre programme ou votre environnement d'exécution
+// 3. Utilisation d'une fonction fournie
+_.sortBy([1, 4, 3]); // '_' est le nom de la variable que vous
+                     // avez choisi pour représenter la librairie
+                     // lodash dans votre programme ou votre
+                     // environnement d'exécution
 ```
 
-Comparez les trois approches de parcours de la collection. 
+Comparez les trois approches de parcours de la collection.
 
 # Le sujet de base pour la première séance s'arrête ici.
 A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
