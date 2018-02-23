@@ -15,9 +15,12 @@ wait(2000)
 .then(
   function() {
     wait(4000);
+    /*
+    console.log('1e promesse');
+    return wait(4000);
+    */
   })
 .then(function() {
   console.log('cool');
 })
 .catch(function(res) { console.log('Erreur', res);})
-

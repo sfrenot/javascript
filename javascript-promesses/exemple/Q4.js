@@ -5,7 +5,8 @@ wait = (time) =>  {
     if (time > 3000) {
       reject('erreur');
     } else {
-      setTimeout(resolve.bind(null, time--), time);
+      //setTimeout(resolve.bind(null, time--), time);
+      setTimeout(resolve.bind(null, --time), time);
     }
   }); 
   return a;

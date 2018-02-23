@@ -276,6 +276,8 @@ Q5.1 : Calculez la moyenne d'un tableau en utilisant la fonction reduce.
 
 Q5.2 : Passez en majuscule toutes les entrées d'un tableau de prénoms.
 
+Q5.3 : A partir d'un tableau retirez 2 points, puis calculez la moyenne résultante. 
+
 Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs. 
 
 
