@@ -4,7 +4,7 @@ Ce TD suppose une connaissance initiale en programmation impérative C et en app
 
 Mars 2014 - [Stéphane Frénot](mailto:stephane.frenot@insa-lyon.fr), INSA Lyon / Telecom
 
-JavaScript est un langage de programmation initialement introduit dans les navigateurs Web afin de rendre les pages HTML plus dynamiques dans leurs interactions avec l'utilisateur. Des optimisations en performances lui ont permis de se hisser comme un langage de programmation efficace aussi bien au niveau du client qu'au niveau du serveur. Il est nécessaire dans une cadre d'ingénieurie informatique de bien connaitre ce langage dans le contexte du Web actuel, car vous serez nécessairement confronté un jour à son utilisation. S'il est souvent présenté comme un langage mal conçu, il est en passe de devenir le langage de référence d'Internet. Certains groupes comme Google ont véritablement parié sur ce langage autant que sur l'alternative Java par exemple. Ce cours essaye d'expliquer rapidement le contexte d'utilisation de JavaScript afin d'en comprendre les pièges et les freins initiaux.
+JavaScript est un langage de programmation initialement introduit dans les navigateurs Web afin de rendre les pages HTML plus dynamiques dans leurs interactions avec l'utilisateur. Des optimisations en performances lui ont permis de se hisser comme un langage de programmation efficace aussi bien au niveau du client qu'au niveau du serveur. Il est nécessaire dans une cadre d'ingénierie informatique de bien connaitre ce langage dans le contexte du Web actuel, car vous serez nécessairement confronté un jour à son utilisation. S'il est souvent présenté comme un langage mal conçu, il est en passe de devenir le langage de référence d'Internet. Certains groupes comme Google ont véritablement parié sur ce langage autant que sur l'alternative Java par exemple. Ce cours essaye d'expliquer rapidement le contexte d'utilisation de JavaScript afin d'en comprendre les pièges et les freins initiaux.
 
 Un cours de synthèse : [Damien Reimert](http://cours.reimert.fr/javascript.html#)  
 Un autre cours : [Stéphane Frénot](http://perso.citi.insa-lyon.fr/sfrenot/cours/TSE-2016/JavaScriptTSE-html)
@@ -268,6 +268,18 @@ par
 console.log("->", mesAmis[i])
 ```
 **Discutons du format JSON**
+
+#### Map / Reduce ####
+La manipulation de tableau se fait avec deux opérateurs de référence. map et reduce. Les connaissez-vous ?
+
+Q5.1 : Calculez la moyenne d'un tableau en utilisant la fonction reduce.
+
+Q5.2 : Passez en majuscule toutes les entrées d'un tableau de prénoms.
+
+Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs. 
+
+
+
 
 ### Les méthodes ###
 ```javascript
