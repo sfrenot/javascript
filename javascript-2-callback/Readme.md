@@ -1,20 +1,20 @@
 # Avant d'attaquer
 Avant d'attaquer ce sujet, il faut que vous ayez compris Javascript. Particulièrement les points suivants :
-- Savoir lancer et arrêter un interpréteur de commandes javascript comme node ou la console du navigateur   
+- Savoir lancer et arrêter un interpréteur de commandes javascript comme node ou la console du navigateur
 - Connaitre les structures de base de Javascript : variables, structures algorithmiques, tableaux, objets.
 - Comprendre la programmation d'ordre supérieur.
 
 # Pourquoi faut-il des callback en Javascript ?
-Javascript propose la mise en place de callback en support aux exécutions multithreadées, et que le mécanisme de callback est une solution pour ne pas bloquer une exécution monothreadée.
+Javascript propose la mise en place de callback en support aux exécutions multithreadées. Le mécanisme de callback est une solution pour ne pas bloquer une exécution monothreadée.
 
 L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback et de ses origines.
 
 ## Exercice liminaire
-Ecrire et lancer le programme suivant :
+Ecrire et lancer le programme suivant.
 
 ```javascript
 function test() {
-  for (var i = 0; i < 20; i++) {
+  for (let i = 0; i < 20; i++) {
     console.log("coucou", i);
   }
   return "termine";
@@ -25,9 +25,10 @@ result = test();
 console.log("->", result);
 console.log("Fin");
 ```
+
 Avez-vous des commentaires ?
 
-Ecrire le nouveau programme suivant :
+Ecrire le nouveau programme suivant.
 
 ```javascript
 function test(f) {
@@ -45,6 +46,7 @@ test(function(message) {
 
 console.log("Fin")
 ```
+
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
 
 ## Exécution synchrone et asynchrone
@@ -70,6 +72,7 @@ test(function(message) {
 
 console.log("Fin")
 ```
+
 Lancez et exécutez le code suivant. Avez-vous compris ce qu'il vient de se passer ?
 
 --> Philip Roberts  
@@ -81,15 +84,18 @@ Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages
 
 Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un systeme turned based. C'est une boucle infinie : qui lance régulièrement des fonctions de traitement.
 
-Réécrire le code précédent afin d'avoir une exécution infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.
+** Q3 Réécrire le code précédent afin d'avoir une exécution infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.**
 
 ## Généralisation	des callbacks
 La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
 
+** Q4
 Ecrire un code nodejs permettant de lire le contenu d'un fichier.
-https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback
+https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback **
 
+** Q5
 Ecrire un code nodejs permettant de faire un get sur une page Web https://nodejs.org/api/http.html#http_http_request_options_callback
+**
 
 Avez-vous des commentaires ?
 
