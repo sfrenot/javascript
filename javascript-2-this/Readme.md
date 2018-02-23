@@ -106,7 +106,69 @@ Q5 : invoquez la fonction parle en utilisant `call` et/ou `apply`.
 
 ** bind, call/apply sont des fonctions de bas niveau permettant de manipuler les éléments javascript. Elles doivent être vues comme des fonctions d'assemblage pour des langages de plus haut niveau.
 
+## Ecriture de classe et héritage externe
+Les trois écritures suivantes sont équivalentes
+```JavaScript
+let Machine1 = function() {
+  return {
+    utilite: "rien1",
+    test: function () {console.log("coucou1", this.utilite);}
+  }
+}
 
+let Machine2 = function() {
+  this.utilite = "rien2";
+  this.test = function() {console.log("coucou2", this.utilite)};
+}
+
+class Machine3 {
+  constructor() {
+    this.utilite = "rien3";
+    this.test = function() {console.log("coucou3", this.utilite)};
+  }
+}
+
+let machine1 = new Machine1(); machine1.test();
+let machine2 = new Machine2(); machine2.test();
+let machine3 = new Machine3(); machine3.test();
+```
+Q6: Relisez ce code pour bien comprendre la notion de sucre syntaxique.
+
+Quand une méthode est résolue, javascript recherche cette méthode dans l'objet, dans le prototype de la classe, puis dans les prototypes hérités. L'attribut prototype d'une function/classe permet de manipuler cet héritage de manière extérieure (sans modifier le code source). Il s'agit encore d'une fonction de bas niveau.
+
+Partons du code suivant :
+```javascript
+class Machine3 {
+  constructor() {
+    this.utilite = "rien3";
+    this.test = function() {console.log("coucou3", this.utilite)};
+  }
+}
+
+let machine3 = new Machine3();
+
+//Vous ajouterez vos codes ici.
+
+machine3.test();
+```
+On veut voir les mécanismes d'héritages de javascript. Insérez vos tests avant l'invocation pour comprendre le mécanisme d'héritage de js.
+
+Q6.1 : Redéfinissez la fonction test de l'objet machine3, puis invoquez là.
+Q6.2 : Redéfinissez le prototype de Machine3 en changeant test. Vérifiez alors que javascript est bien dynamique....
+Q6.3 : Redéfinissez le prototype de Object en lui ajoutant une fonction test. Vérifiez alors que le mécanisme d'héritage de prototype fonctionne.
+
+Q7 : vous devriez comprendre ce code.
+```javascript
+
+Number.prototype.parler = function() {
+  console.log("Je suis un nombre !");
+};
+
+let nombre = 42;
+nombre.parler();
+```
+
+### Fin de séance
 ## Passons aux objets (de l'objet !!)
 Les objets en trois étapes
 
@@ -169,7 +231,7 @@ C'est ici qu'on découvre que javascript est un langage orienté prototype... Le
      "longues et ascérées"
 
 
-![Prototypes](prototype.jpg =250x "Prototypes")
+![Prototypes](prototype.jpg "Prototypes")
 
 Voici un schema de départ de description d'une fonction.
 ![This](this.png "This")
