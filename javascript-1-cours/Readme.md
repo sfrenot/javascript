@@ -276,9 +276,9 @@ Q5.1 : Calculez la moyenne d'un tableau en utilisant la fonction reduce.
 
 Q5.2 : Passez en majuscule toutes les entrées d'un tableau de prénoms.
 
-Q5.3 : A partir d'un tableau retirez 2 points, puis calculez la moyenne résultante. 
+Q5.3 : A partir d'un tableau retirez 2 points, puis calculez la moyenne résultante.
 
-Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs. 
+Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs.
 
 
 
@@ -347,70 +347,49 @@ Comparez les trois approches de parcours de la collection.
 # Le sujet de base pour la première séance s'arrête ici.
 A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
 Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
-
+Il y a quelques exercices supplémentaires de programmation fonctionnelle si vous en voulez plus issus du livre Eloquent Javascript.
 
 Les fonctions d'ordre supérieur prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
 
 Prenons l'exemple du parcours d'un tableau.
 
+```javascript
     function afficheTableau(tableau) {
       for (i = 0; i < tableau.length; i++; ) {
         console.log(tableau[i])
       }
     }
+```
 ** Réalisez une fonction 'logEach' qui prend un tableau en paramètre et fait un console.log sur chaque paramètre
 
 ** Puis, transformez donc ce code dans une fonction générique `forEach` permettant d'appliquer une fonction quelconque à tous les membres du tableau. Utilisez-là pour afficher les valeurs du tableau sur la console, puis pour faire une somme d'éléments d'un tableau**
 
-
 ---
-On peut donc également renvoyer une fonction. Que fait la fonction suivante ?
+On peut également renvoyer une fonction. Que fait la fonction suivante ?
 
+```javascript
     function negate(func) {
       return function(x) {
         return !func(x)
       }
     }
+```
 
 **Ecrire la fonction de comparaison d'un nombre par rapport à 0 et appliquez la version negate dessus.**
 
  En plus générique.
 
+```javascript
     function negate(func) {
       return function() {
         return !func.apply(null, arguments)
       }
     }
+```
 
 **Qu'est ce que que cela apporte ?**
 
- On peut finir avec le célèbre map/reduce.
-
-Le réduce permet, en partant d'une valeur initiale, d'appliquer une fonction (connue dans le futur) à tous les éléments d'un tableau, afin de le réduire à une valeur unique.
-
-
-    function reduce(future, base, tableau) {
-      tableau.forEach(function (element) { // Ai-je déjà parlé des fonctions anonymes ?
-        base = future(base, element)
-      });
-      return base
-    }
-
-    --- Utilisation
-    function add(a, b) { // Ceci est la fonction à utiliser dans le futur
-      return a + b
-    }
-
-    function sum(nombres) {
-      return reduce (add, 0, nombres)
-    }
-
-Le map fabrique un nouveau tableau à partir de l'application d'une fonction sur tous les éléments du premier tableau.
-
-**A vous de l'écrire.**
-
-Quelques autres éléments sur la programmation fonctionnelle.
-
+```javascript
     let op = {
       "+": function (a, b) { return a+b; },
       "-": function (a, b) { return a-b; }
@@ -433,248 +412,16 @@ Quelques autres éléments sur la programmation fonctionnelle.
     }
 
     map(partial(op["+"],1), [0,2,4]))  // Ici ca devient vraiment fonctionnel ...   
+```
 
 **Que fait le code fonctionnel suivant ?**
-
+```javascript
     function aDécouvrir(f1, f2) {
       return function () {
         return f1(f2.apply(null, arguments))
       }
-    }    
-
-## Passons aux objets (de l'objet !!)
-Les objets en trois étapes
-
-    let lapin = {};
-    lapin.parle = function (phrase) {
-      console.log("Le lapin dit '", phrase, "'");
     }
-    lapin.parle("Je suis vivant.");
-
-Mais aussi
-
-    function parle (phrase) {
-      console.log("Le lapin ", this.couleur, " dit '", phrase, "'");
-    }
-    let lapinBlanc = { couleur : "blanc", parle : parle };
-    let lapinNoir = { couleur : "noir", parle : parle };
-
-    lapinBlanc.parle(" Je suis tout blanc ");
-    lapinNoir.parle(" Je suis tout noir ");
-
-
-    lapin.parle(" je suis blanc ")
-    ==
-    parle.apply(lapin, ["je suis blanc"]);
-    ==
-    parle.call(lapin, "je suis blanc");
-
-
-On peut appliquer l'opérateur new sur une fonction. Je vous suggère d'écrire cette fonction avec une première lettre en majuscule.
-
-    function Lapin (couleur) {
-      this.couleur = couleur;
-      this.parle = function (phrase) {
-        console.log("Le lapin ", this.couleur, " dit '", phrase, "'");
-      };
-    }
-
-    let lapinTueur = new Lapin(" tueur ");
-    lapinTueur.parle(" GRRRAAAAAAHHHH ");
-
-    ------
-    function fabriqueMoiUnLapin(couleur) {
-      return {
-        couleur: couleur,
-        parle: function(phrase) { /***/ }
-      };
-    }
-    let lapinNoir = fabriqueMoiUnLapin("black");
-
-C'est ici qu'on découvre que javascript est un langage orienté prototype... Le prototype est un objet présent dans toutes les fonctions qui référence toute les fonctions disponibles à partir de celle-ci. Positionner une propriété n'affecte jamais le prototype. Rechercher une propriété se fait dans l'objet, puis dans le prototype, puis dans le prototype du prototype. Les prototypes sont chaînés.
-
-     Lapin.prototype.dents = "petites";
-     lapinTueur.dents;
-     --> "petites"
-     lapinTueur.dents = "longues et ascérées"
-     lapinTueur.dents;
-     --> "longues et ascérées";
-     Lapin.prototype.dents;
-     --> "petites";
-     "longues et ascérées"
-
-
-![Prototypes](prototype.jpg =250x "Prototypes")
-
-Voici un schema de départ de description d'une fonction.
-![This](this.png "This")
-
 ```
-MyConstructor = function () {
-  this.a = "debut";
-}
-MyConstructor.protype.b = "fin";
-let j = new MyConstructor();
-console.log(j.a, j.b);
-```
-![This](this-a.jpg "This-a")
-
-
-Ce que fait l'operateur new est donc :
-
-1. Crée un nouvel objet (j). Le type de l'objet est object.
-2. Positionne la propriété interne non accessible [[prototype]] vers la fonction pointée par le prototype de la function (MyConstructor.prototype).
-3. Exécute le constructeur de ce prototype, en remplacant this par le nouvel objet créé (j) (j.a -> "debut")
-4. Renvoie l'objet nouvellement créé, sauf si le constructeur retourne une valeur non primitive
-
-Quand une propriété est recherchée, elle l'est dans l'objet puis dans tous les  prototypes enchainés.
-
-Un dernier détail important sur le mot clé `this` représente l'objet qui 'possède' la fonction qui s'exécute.
-
-```
-let i = 30
-function f () {
-  let i = 15;
-  console.log(i);
-  console.log(this.i);
-}
-f()
-```   
-**L'exemple est clair ?**
-
-## Quelques petits soucis sur le prototypage
-Tous les objets possèdent des propriétés. Les leurs, celles des prototypes, et de la chaîne des prototypes.
-
-Exemple 1
-
-    let lesEtudiants = {};
-    if ("constructor" in lesEtudiants) {
-       console.log("Oui, il y a un étudiants qui s'appelle 'constructor'");
-    }
-
-Exemple 2 : Ecrire une fonction qui permet de lister les proprietés d'un objet.
-
-    let test = {x:10, y:3};
-    console.log(test.properties());
-
-On est sauvé avec la methode hasOwnProperty qui permet de vérifier que la propriété est véhiculé par l'objet et non pas par son prototype.
-
-On peut donc ecrire le programme fonctionnel suivant :
-
-    function forEachIn(object, action) {
-      for (let property in object) {
-        if (object.hasOwnProperty(property))
-          action(property, object[property]);
-      }
-    }
-
-    let etudiants = {"sfrenot" : {nom: "frenot", prenom : "stephane", age : "22"},
-                     "lmametz" : {nom: "mametz", prenom : "laurent"}};
-    forEachIn(etudiants, function(name, value) {
-      console.log("nom : ", name, " -> valeur ", value);
-    });
-
-**Que se passe t'il si un étudiant s'appelle 'hasOwnProperty' ?
-Voyez-vous une solution ? (Changer d'ordre par exemple ...)**            
-
-## Un dernier point sur la modularité et la notion d'interface de service
-
-On veut faire un 'module' qui 'exporte' deux fonctions publiques de conversion.
-Comment fonctionne ce programme ?
-
-    function buildMonthNameModule() {
-      let names = ["January", "February", "March", "April",
-               "May", "June", "July", "August", "September",
-               "October", "November", "December"];
-      function getMonthName(number) {
-        return names[number];
-      }
-      function getMonthNumber(name) {
-        for (let number = 0; number < names.length; number++) {
-          if (names[number] == name)
-            return number;                    }
-      }
-
-      window.getMonthName = getMonthName;
-      window.getMonthNumber = getMonthNumber;
-    }
-
-    buildMonthNameModule();
-
-    show(getMonthName(11));
-
-**Quels sont les problèmes de cette modularité ?**
-
-1 Supprimer les déclarations multiples (chaque déclaration est source d'erreur de nom)
-
-    function register(publicFunc) {
-      forEachIn(publicFunc, function(name, value) {
-         window[name] = value;
-      });
-    }
-
-    function buildMonthNameModule() {
-      let names = ["January", "February", "March", "April",
-               "May", "June", "July", "August", "September",
-               "October", "November", "December"];
-      register ({
-        getMonthName: function(number) {
-          return names[number];
-        },
-        getMonthNumber: function(name) {
-          for (let number = 0; number < names.length; number++) {
-            if (names[number] == name)
-              return number;
-          }
-        }
-      });
-     }   
-
-     buildMonthNameModule();
-     console.log(getMonthName(11));
-
-2 Supprimer la fonction déclarée au top niveau
-    En la rendant anonyme et en l'exécutant. Pour l'exécuter, il faut y mettre quelques parenthèses !!!
-
-    (function() {
-      let names = ["Sunday", "Monday", "Tuesday", "Wednesday",
-               "Thursday", "Friday", "Saturday"];
-      register({
-        getDayName: function(number) {
-          return names[number];
-        },
-        getDayNumber: function(name) {
-          for (let number = 0; number < names.length; number++) {
-            if (names[number] == name)
-              return number;
-          }
-        }
-      });
-    })();
-
-2.1 On peut enfin passer un paramètre externe à cette fonction... Ce code vous dit-il quelque chose ?
-
-    (function() {
-      let names = ["Sunday", "Monday", "Tuesday", "Wednesday",
-               "Thursday", "Friday", "Saturday"];
-      console.log(" $ -> ", $)
-      register({
-        getDayName: function(number) {
-          return names[number];
-        },
-        getDayNumber: function(name) {
-          for (let number = 0; number < names.length; number++) {
-            if (names[number] == name)
-              return number;
-          }
-        }
-      });
-    })($);             
-
-Et voilà un beau module qui déclare deux fonctions publiques, en conservant les attributs privés (C'est ce qu'on cherche à faire en POO non ?)     
-
-
-
 Pour se détendre [wat](https://www.destroyallsoftware.com/talks/wat)  
 Linux dans javascript [bellard](http://bellard.org/jslinux/)  
 Douglas Crockford, javascript leader [crockford](http://en.wikipedia.org/wiki/Douglas_Crockford)  
