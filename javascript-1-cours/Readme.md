@@ -435,25 +435,24 @@ CT JS : [video](https://www.youtube.com/watch?v=PtD-WKSC6ak)
 
 ---
 # Pourquoi faire du JavaScript ?
-Javascript est certainement aujourd'hui le plus gros ecosystème numérique. Il va concerner les aspects communautaires suivants :
+Javascript est certainement aujourd'hui le plus gros écosystème numérique. Il va concerner les aspects communautaires suivants :
 
 - Développement d'applications :   
   * n'importe qui peut développer en Javascript, et l'exécuter sans 'temps mort'.
   * Démarrer par les interfaces Web permet d'avoir un MVP[^1] tiré par l'usage (UX).
-  * L'infrastructure nodejs[^2] permet d'envisager des développements logiciels monolangages de bout en bout. LinkedIn, NetFlix, Paypal
+  * L'infrastructure nodejs[^2] permet d'envisager des développements logiciels monolangages de bout en bout. LinkedIn, Netflix, Paypal
 - Développement de plugins : (Nature fonctionnelle)
   * Les fonctions basiques sont développés de manière autonomes. Certains plugins sont maintenant incontournables :
-    * jquery
-    * underscore
-    * bootstrap
-  * Nombreux gestionnaires de bibliothèques : bower (client), npm (serveur), require, standardisation des modules
+    * lodash
+    * passport pour l'authentification
+  * Un gestionnaires de bibliothèques : npm
 - Intégration dans tous les grands systèmes : facebook, linkedin
-- Infrastructures de référence : angularjs, amberjs, phonegap, cordovajs,
-- Runtime : os, nodejs, v8, navigateurs
+- Infrastructures de référence : Angular,  cordova,
+- Runtime : os, nodejs, navigateurs Web
   * Navigateurs Web : fixe, tablettes, smartphone
   * Machines virtuelles : v8, fantomjs
   * Systèmes d'exploitation
-- Sur Langages : coffeescript, typescript
+- Sur Langages : typescript
 
 ---
 - Assembleur du web
@@ -465,8 +464,7 @@ Javascript est certainement aujourd'hui le plus gros ecosystème numérique. Il 
 
 ---
 - Le but n'est pas d'enseigner exclusivement JavaScript, mais d'être prêt sur le plus gros ecosystème connu.
-- Menaces : dart, jungle complexe (mais vrai challenge), mauvais programmeur (mais c'est le cas dans tous les langages).
-
+- Menaces : jungle complexe (mais vrai challenge), mauvais programmeur (mais c'est le cas dans tous les langages).
 
 [^1]: Minimum Viable Product : Lean startup, E. Ries
 [^2]: NodeJs : [http://nodejs.org](http://nodejs.org)
