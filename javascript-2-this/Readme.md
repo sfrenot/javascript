@@ -19,6 +19,7 @@ Java vs Javascript
 Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
 
 ```javascript
+    // Attention ce code est maladroit.
     function Create() {
       this.reponse = 23;
       this.calc = function (x) { return x + this.reponse; }
@@ -82,10 +83,63 @@ tom.move()
 Q2 : écrire le code coffeescript d'une classe simple. Pour cela il faut installer coffeescript avec votre utilitaire npm.
 `npm install coffeescript`
 
+## Classes et héritage
+Une classe javascript
+```javascript
+// Ceci est une classe javascript
+function Create() {
+  this.reponse = 23;
+}
+
+Create.prototype.calc = function (x) { return x + this.reponse; }
+// Elle s'arrête ici
+
+let a = new Create()
+console.log(a.calc(12))
+```
+Q2.1 Quelle est la différence entre cette classe et celle-ci ?
+
+```javascript
+function Create() {
+  this.reponse = 23;
+  this.calc = function (x) { return x + this.reponse; }
+}
+
+let a = new Create()
+console.log(a.calc(12))
+```
+
+Un héritage javascript
+```javascript
+// 1) Une classe de base
+function Create() { this.reponse = 23; }
+Create.prototype.calc = function (x) { return x + this.reponse }
+// 2) Un héritage
+function Create2() {this.reponse = 32}
+Create2.prototype = new Create()
+Create2.prototype.hello = function () { console.log("hello"); }
+// 3) Une surcharge
+Create2.prototype.calc = function (x) { return 2*x + this.reponse; }
+```
+Comprenez-vous ces lignes ?
+```javascript
+let a = new Create2()
+console.log(a.calc(12))
+a.hello()
+
+console.log(a.__proto__.calc(12))
+console.log(a.__proto__.__proto__.calc(12))
+
+console.log(a.__proto__)
+console.log(a.__proto__.__proto__)
+console.log(a.__proto__.__proto__.__proto__)
+console.log(a.__proto__.__proto__.__proto__.__proto__)
+```
+
 ## Quelques opérations de bas niveau
 ### bind permet de 'forcer' un contexte dans une fonction.
 Soit le code suivant
-```javacript
+```javascript
 function parle() {
   console.log("->", this.me, " dis quelque chose")
 }
@@ -170,6 +224,7 @@ nombre.parler();
 
 # Fin de séance
 Quelles sont les conclusions importantes de ce TD ?
+Définir la matrice SWOT de javascript.
 - ?
 - ?
 - ?
