@@ -1,5 +1,5 @@
 multiplie = (a, b) ->
-  return (a*b)
+  (a*b)
 
 console.log multiplie(4, 5)
 
