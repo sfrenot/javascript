@@ -152,11 +152,10 @@ Q4 : Invoquez cet objet
 Soit la fonction suivante
 ```javascript
 function parle(phrase) {
-  console.log(this.me, " vous dit : ", phrase)
-
+  console.log("Je vous dit : ", phrase)
 }
 ```
-Q5 : invoquez la fonction parle en utilisant `call` et/ou `apply`.
+Q5b : invoquez la fonction parle en utilisant `call` et/ou `apply`.
 
 ** bind, call/apply sont des fonctions de bas niveau permettant de manipuler les éléments javascript. Elles doivent être vues comme des fonctions d'assemblage pour des langages de plus haut niveau.
 
