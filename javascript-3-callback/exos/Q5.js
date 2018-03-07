@@ -13,10 +13,10 @@ function traitement() {
   console.log("Debut");
 
   test(function(message) {
+    console.log("Fin")
   	console.log("-> terminé");
   });
 
-  console.log("Fin")
   
   setTimeout(function() {
     traitement();

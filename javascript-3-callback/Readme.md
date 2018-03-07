@@ -97,6 +97,11 @@ https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback **
 Ecrire un code nodejs permettant de faire un get sur une page Web https://nodejs.org/api/http.html#http_http_request_options_callback
 **
 
+** Q6
+Ecrire un code lisant le contenu d'un fichier contenant des urls, puis pour chaque url accéder au site web correspondant.
+**
+
+
 Avez-vous des commentaires ?
 
 #Refs
