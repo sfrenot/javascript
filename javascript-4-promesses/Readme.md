@@ -38,7 +38,7 @@ Etendre la promesse wait afin d'annuler la promesse si le délai est supérieur 
 Essayez de lire et de comprendre le code Q2.js avant de le lancer. Puis comparez votre idée au résultat observé.
 
 # Réorganisation du flow
-Réorganisez le flow de promesses afin de faire la première puis la seconde.
+Réorganisez le flow de promesses afin de faire la première puis la seconde promesse.
 
 # Ouvrir le code Q4
 Donnez une explication probable de ce que vous voyez...
