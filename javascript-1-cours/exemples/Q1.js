@@ -1,4 +1,4 @@
-function  multiplie(a, b) {
+multiplie = function (a, b) {
   return a * b;
 }
 
@@ -7,7 +7,7 @@ console.log("->", multiplie(5, 6));
 
 //
 
-function multiplieur(a) {
+multiplieur = function (a) {
   return function(b) { return multiplie(a, b); }
 }
 
