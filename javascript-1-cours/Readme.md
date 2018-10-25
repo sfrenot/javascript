@@ -308,6 +308,8 @@ Parcourez, et afficher les  valeurs de trois manières.
 - 1 En utilisant la boucle for
 - 2 En utilisant la construction javascript forEach
 
+Les documentations de référence sur javascript se trouvent sur le site de Mozilla developper netword (mdn). Pour une recherche dans google : mdn javascript <votre requête>
+
 Une fois que les deux premiers exemples sont traités, nous passons à l'utilsation d'un module externe.
 - 3 En utilisant la bibliothèque lodash
 
