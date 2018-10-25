@@ -71,7 +71,7 @@ Une variable n'a pas a être déclarée, elle sera 'typé' en fonction de son us
     2. string : a = "coucou"
     3. booleen : b = true
     4. fonction : c = function () {}
-    5. expression régulière : d = /a/
+    5. expression régulière : d = /a/ //Ce type sera discuté à la prochaine séance
 
 Une variable peut être déclarée avant son usage avec le mot clé let. Elle est alors initialisée à "undefined".
 
@@ -80,17 +80,16 @@ let x
 console.log(x)
 ```
 
-Q0 : testez le type RE avec la fonction JS test().
-Q0.1 : Où trouver de la documentation ?
-
 ### Les structures de controle
 javascript possède des structures de contrôle algorithmiques comme tous les langages.
 
+```javascript
     if / else if / else
+    switch() / case / break
     while ()
     do {} while ()
     for () / break
-    switch() / case / break
+```
 
 ### Les fonctions
 javascript permet de capturer les algorithmes dans des fonctions. Le programme initial (votre navigateur ou votre interpréteur javascript) est également une fonction.
