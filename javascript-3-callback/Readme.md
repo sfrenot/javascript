@@ -7,6 +7,8 @@ Avant d'attaquer ce sujet, il faut que vous ayez compris Javascript. Particuliè
 # Pourquoi faut-il des callback en Javascript ?
 Javascript propose la mise en place de callback en support aux exécutions multithreadées. Le mécanisme de callback est une solution pour ne pas bloquer une exécution monothreadée.
 
+Q1 Quelles sont les idées cachées ici ?
+
 L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback et de ses origines.
 
 ## Exercice liminaire
@@ -57,7 +59,7 @@ Copiez et exécutez le code suivant.
 ```javascript
 function test(f) {
   setTimeout(function () {
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 20; i++) { // Ne pas toucher à ce code
       console.log("coucou", i);
     }
     f();
@@ -82,9 +84,9 @@ Le passage par un système asynchrone à base de callback dans le cas de javascr
 
 Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages, quels sont les inconvénient ? Quels est le type de système d'exploitation associé à cette approche ? Comprenez-vous que cette approche n'est pas liée à Javascript ? Mais à quoi est elle liée alors ?
 
-Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un systeme turned based. C'est une boucle infinie : qui lance régulièrement des fonctions de traitement.
+Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un *systeme turned based*. C'est une boucle infinie : qui lance régulièrement des fonctions de traitements.
 
-** Q3 Réécrire le code précédent afin d'avoir une exécution infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.**
+** Q3 Réécrire le code précédent afin d'avoir une boucle infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.**
 
 ## Généralisation	des callbacks
 La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
