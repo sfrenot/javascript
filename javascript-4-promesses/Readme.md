@@ -1,8 +1,9 @@
 (ref entre autres (https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.esf9nsnwf)
-#Liminaire
+
+# Liminaire
 Que fait le code dans le répertoire liminaire ?
 
-#Promesses
+# Promesses
 Le mécanisme des promesses est un mécanisme de remplacement aux callback afin de rendre le code plus fluide. Le mécanisme des callback est un mécanisme de bas-niveau, proche de l'assembleur Javascript capable de gérer les événement asynchrone de la boucle événementielle JavaScript. (cf TD2).
 
 Ce mécanisme simple, devient rapidement complexe dans le traitement d'erreurs, lorsque les événements asynchrones s'enchaînent. Un callback étant une 'promesse' d'exécution futur, il est parfois difficile de savoir comment gérer ces événements. Un autre cas complexe apparait lorsqu'il y a exécution groupées de callback. Doit-on arrêter l'exécution si un callback échoue, sachant qu'une partie des callbacks auront été réalisés, ou doit-on valider tous les callback malgré des erreur. Comment faire pour valider un appel dès qu'au moins un callback d'une collection est réalisé ?
