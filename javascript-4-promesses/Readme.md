@@ -1,7 +1,7 @@
 (ref entre autres (https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.esf9nsnwf)
 
 # Liminaire
-Que fait le code dans le répertoire liminaire ?
+Que fait le code dans le répertoire (https://github.com/sfrenot/javascript/tree/master/javascript-4-promesses/exemple/liminaire)[liminaire] ?
 
 # Promesses
 Le mécanisme des promesses est un mécanisme de remplacement aux callback afin de rendre le code plus fluide. Le mécanisme des callback est un mécanisme de bas-niveau, proche de l'assembleur Javascript capable de gérer les événement asynchrone de la boucle événementielle JavaScript. (cf TD2).
