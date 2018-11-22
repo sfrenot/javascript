@@ -19,7 +19,20 @@ La notion de promesse existe dans le principe de futures présent dans des langa
 
 Dans le monde Javascript elles sont arrivées avec le module async de jQuery, puis le framework Dojo ajoutera la bibliothèque Deferred. Rapidement une spécification de standardisation émerge (Promise/A) qui deviendra plus tard Promise/A+. Ajourd'hui l'implantation de référence est [bluebird](http://bluebirdjs.com/docs/getting-started.html)
 
-# Première promesse
+# Utiliser une promesse
+L'utilisation des promesse se fait selon le pattern suivant :
+
+```
+<promesse>
+.then (function (res) { ...}) // Réussite
+.catch (function (err) {...}) // Erreur
+```
+
+- Installer le package fs-extra-promise
+En utilisant ce package, lire un fichier et traiter les erreurs possibles.
+
+# Ecrire une promesse
+L'écriture d'une promesse consiste à retourner un objet Promesse. Cette objet 'emballe' l'exécution de la fonction initiale. Si le retour est valide il se fait en invoquant la fonction resolve, sinon en invoquant la fonction reject.
 
 ```Javascript
 Promise = require('bluebird');
@@ -43,7 +56,7 @@ Etendre la promesse wait afin d'annuler la promesse si le délai est supérieur 
 Essayez de lire et de comprendre le code Q2.js avant de le lancer. Puis comparez votre idée au résultat observé.
 
 # Réorganisation du flow
-Réorganisez le flow de promesses afin de faire la première puis la seconde promesse.
+Réorganisez le flow de promesses afin de faire la première puis la seconde promesse dans le resolve de la première.
 
 # Ouvrir le code Q4
 Donnez une explication probable de ce que vous voyez...
@@ -62,8 +75,7 @@ console.log("End")
 ```
 
 # Enfin on va utiliser tout cela...
-En utilisant le module npm request-promise, réalisez un crawler web. Un outil qui, à partir d'une url, recherche toutes les pages filles. La recherche des pages filles doit se faire en utilisant un Promise.all.
-
+En utilisant le module npm request-promise, réécrire le code liminaire. La recherche des pages filles doit se faire en utilisant un Promise.all.
 
 # Wrap-up
 A la fin de ce TD, vous devez :
