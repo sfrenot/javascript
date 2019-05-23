@@ -21,7 +21,7 @@ Nous utilisons [nodejs](http://nodejs.org), comme interpréteur de programme Jav
     cd /tmp
     wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz
     tar xvf ./node-v8.9.4-linux-x64.tar.xz
-    echo "export PATH=$PATH:/tmp/node-v8.9.4-linux-x64/bin" >> ~/.bashrc
+    echo "export PATH=\$PATH:/tmp/node-v8.9.4-linux-x64/bin" >> ~/.bashrc
     . ~/.bashrc
     cd
 ```
