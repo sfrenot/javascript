@@ -99,7 +99,8 @@ function parse(m) {
 var sha = function (m) {
 
   console.log("->", m);
-  console.log("->" ,pad(m))
+  // console.log("->" ,pad(m))
+  // process.exit()
   // Pre-processing
   let M = parse(pad(m));
 
@@ -119,7 +120,7 @@ var sha = function (m) {
       } else {
         W[t] = (σ1(W[t - 2]) + W[t - 7] + σ0(W[t - 15]) + W[t - 16]) % Math.pow(2, 32);
       }
-      console.log(t, '->', W[t].toString(16).padStart(8,'0'))
+      // console.log(t, '0x' + W[t].toString(16).padStart(8,'0'))
     }
 
     // Initialize the working variables
@@ -134,11 +135,13 @@ var sha = function (m) {
     let T1;
     let T2;
 
+//     console.log(`0x${a.toString(16)}\n0x${b.toString(16)}\n0x${c.toString(16)}
+// 0x${d.toString(16)}\n0x${e.toString(16)}\n0x${f.toString(16)}
+// 0x${g.toString(16)}\n0x${h.toString(16)}`)
     // Do stuff
     for (let t = 0; t < 64; t++) {
-
+      T2 = (Σ0(a) + Maj(a, b, c)) % Math.pow(2, 32); //Variables temporaires
       T1 = (h + Σ1(e) + Ch(e, f, g) + K[t] + W[t]) % Math.pow(2, 32);
-      T2 = (Σ0(a) + Maj(a, b, c)) % Math.pow(2, 32);
       h = g;
       g = f;
       f = e;
@@ -147,8 +150,14 @@ var sha = function (m) {
       c = b;
       b = a;
       a = (T1 + T2) % Math.pow(2, 32);
-    }
+  //     console.log(`0x${a.toString(16)}\n0x${b.toString(16)}\n0x${c.toString(16)}
+  // 0x${d.toString(16)}\n0x${e.toString(16)}\n0x${f.toString(16)}
+  // 0x${g.toString(16)}\n0x${h.toString(16)}`)
 
+    }
+//     console.log(`0x${a.toString(16)}\n0x${b.toString(16)}\n0x${c.toString(16)}
+// 0x${d.toString(16)}\n0x${e.toString(16)}\n0x${f.toString(16)}
+// 0x${g.toString(16)}\n0x${h.toString(16)}`)
     // Compute the i-th intermediate hash
     H[i + 1] = [];
     H[i + 1][0] = (a + H[i][0]) % Math.pow(2, 32);
@@ -159,16 +168,21 @@ var sha = function (m) {
     H[i + 1][5] = (f + H[i][5]) % Math.pow(2, 32);
     H[i + 1][6] = (g + H[i][6]) % Math.pow(2, 32);
     H[i + 1][7] = (h + H[i][7]) % Math.pow(2, 32);
+
+//     console.log(`0x${H[1][0].toString(16)}\n0x${H[1][1].toString(16)}\n0x${H[1][2].toString(16)}
+// 0x${H[1][3].toString(16)}\n0x${H[1][4].toString(16)}\n0x${H[1][5].toString(16)}
+// 0x${H[1][6].toString(16)}\n0x${H[1][7].toString(16)}`)
+//     process.exit()
   }
 
-  let digestWords = H[M.length];
-  let digestTemp = digestWords.map((x) => {
-    let hex = (x >>> 0).toString(16);
-    return `${'0'.repeat(8 - hex.length)}${hex}`;
-  });
+  function output(hashes) {
+    return hashes.map((x) => {
+      let hex = (x >>> 0).toString(16);
+      return `${hex.padStart(8, '0')}`;
+    }).join('');
+  }
 
-  let digest = digestTemp.join('');
-  return digest;
+  return output(H[M.length]);
 };
 
 function codePointToUtf8BinaryNotation(codePoint) {
@@ -234,8 +248,6 @@ var toUTF8OctetString = function (str) {
  * @return {string} A SHA-256 digest
  */
 var hashString = function (str) {
-  // console.log(toUTF8OctetString(" toto\n"));
-  // process.exit()
   return sha(toUTF8OctetString(str).replace(/ /g, '')); // remove whitespqces
 }
 
