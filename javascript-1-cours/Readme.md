@@ -197,6 +197,11 @@ Q2 Ecrire la fonction multiplieur(a) qui renvoie une fonction capable de réalis
 
 Prenez une pause pour comprendre ce code et posez vos questions.
 
+-> Langage fonctionnel, objet, imperatif
+-> Fonctions d'ordre supérieur
+-> 𝝀-expression
+# Fin de la séance 1
+
 ### Langage fonctionnel pur ou closure ?
 Q4 Testez et comprenez le code suivant. Que faut-il ajouter au principe de fonctions pour que cela soit possible ?
 
@@ -268,39 +273,6 @@ console.log("->", mesAmis[i])
 ```
 **Discutons du format JSON**
 
-#### Map / Reduce ####
-La manipulation de tableau se fait avec deux opérateurs de référence. map et reduce. Les connaissez-vous ?
-
-Q5.1 : Calculez la moyenne d'un tableau en utilisant la fonction reduce.
-
-Q5.2 : Passez en majuscule toutes les entrées d'un tableau de prénoms.
-
-Q5.3 : A partir du premier tableau retirez 2 points à chaque élément, puis calculez la moyenne résultante.
-
-Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs.
-
-
-
-
-### Les méthodes ###
-```javascript
-    doe = "Doe"
-    typeof doe.toUpperCase
-    doe.toUpperCase()
-```
-
-### Les variables automatiques ###
-```javascript
-    function arguments() {
-      return "Vous avez fourni " + arguments.length + " arguments.";
-    }
-    arguments(1, 2, 3, "toto")
-```
-***Une remarque particulière sur le code précédent ?***
-
-### Les exceptions ###
-Pareil que pour java / throw + try/catch
-
 ### Les fonctions d'ordre supérieur. Ou l'approche fonctionnelle ###
 
 Prenez un tableau de valeurs.
@@ -310,7 +282,7 @@ Parcourez, et afficher les  valeurs de trois manières.
 
 Les documentations de référence sur javascript se trouvent sur le site de Mozilla developper netword (mdn). Pour une recherche dans google : mdn javascript <votre requête>
 
-Une fois que les deux premiers exemples sont traités, nous passons à l'utilsation d'un module externe.
+Une fois que les deux premiers exemples sont traités, nous passons à l'utilisation d'un module externe.
 - 3 En utilisant la bibliothèque lodash
 
 Pour utiliser lodash, il faut utiliser un module externe. L'outil de gestion s'appelle npm pour Node Package Manager. Nous le détaillerons plus tard.
@@ -345,84 +317,37 @@ _.sortBy([1, 4, 3]); // '_' est le nom de la variable que vous
 
 Comparez les trois approches de parcours de la collection.
 
-# Le sujet de base pour la première séance s'arrête ici.
-A la fin de cette séance, vous devez avoir compris la syntaxe générale de javascript.
-Comprendre un programme prenant en paramètre des fonctions ou retournant une fonction.
-Il y a quelques exercices supplémentaires de programmation fonctionnelle si vous en voulez plus issus du livre Eloquent Javascript.
+#### Map / Reduce ####
+La manipulation de tableau se fait avec deux opérateurs de référence. map et reduce. Les connaissez-vous ?
 
-Les fonctions d'ordre supérieur prennent des fonctions en paramètre, et peuvent donc les appliquer dans leur exécution.
+Q5.1 : Calculez la moyenne d'un tableau en utilisant la fonction reduce.
 
-Prenons l'exemple du parcours d'un tableau.
+Q5.2 : Passez en majuscule toutes les entrées d'un tableau de prénoms.
 
+Q5.3 : A partir du premier tableau retirez 2 points à chaque élément, puis calculez la moyenne résultante.
+
+Tous les traitements massifs de données peuvent se faire avec des combinaisons de ces deux opérateurs.
+
+### Les méthodes ###
 ```javascript
-    function afficheTableau(tableau) {
-      for (i = 0; i < tableau.length; i++; ) {
-        console.log(tableau[i])
-      }
-    }
-```
-** Réalisez une fonction 'logEach' qui prend un tableau en paramètre et fait un console.log sur chaque paramètre
-
-** Puis, transformez donc ce code dans une fonction générique `forEach` permettant d'appliquer une fonction quelconque à tous les membres du tableau. Utilisez-là pour afficher les valeurs du tableau sur la console, puis pour faire une somme d'éléments d'un tableau**
-
----
-On peut également renvoyer une fonction. Que fait la fonction suivante ?
-
-```javascript
-    function negate(func) {
-      return function(x) {
-        return !func(x)
-      }
-    }
+    doe = "Doe"
+    typeof doe.toUpperCase
+    doe.toUpperCase()
 ```
 
-**Ecrire la fonction de comparaison d'un nombre par rapport à 0 et appliquez la version negate dessus.**
-
- En plus générique.
-
+### Les variables automatiques ###
 ```javascript
-    function negate(func) {
-      return function() {
-        return !func.apply(null, arguments)
-      }
+    function arguments() {
+      return "Vous avez fourni " + arguments.length + " arguments.";
     }
+    arguments(1, 2, 3, "toto")
 ```
+***Une remarque particulière sur le code précédent ?***
 
-**Qu'est ce que que cela apporte ?**
+### Les exceptions ###
+Pareil que pour java / throw + try/catch
 
-```javascript
-    let op = {
-      "+": function (a, b) { return a+b; },
-      "-": function (a, b) { return a-b; }
-    }
 
-    reduce (op["+"], 0, [1, 2, 3]) // On gagne la déclaration d'une fonction add
-
-    function partial (func) { // La fonction construit une nouvelle fonction, avec des       paramètres partiellement fournis
-      let knownArgs = arguments;
-      return function () {
-        let realArgs = [];
-        for (let i=1; i < knownArgs.length; i++) {
-          realArgs.push(knownArgs[i]);
-        }  
-        for (let i=0; i<arguments.length;i ++) {
-          realArgs.push(arguments[i]);
-        }  
-        return func.apply(null, realArgs);
-      };  
-    }
-
-    map(partial(op["+"],1), [0,2,4]))  // Ici ca devient vraiment fonctionnel ...   
-```
-
-**Que fait le code fonctionnel suivant ?**
-```javascript
-    function aDécouvrir(f1, f2) {
-      return function () {
-        return f1(f2.apply(null, arguments))
-      }
-    }
-```
 Pour se détendre [wat](https://www.destroyallsoftware.com/talks/wat)  
 Linux dans javascript [bellard](http://bellard.org/jslinux/)  
 Douglas Crockford, javascript leader [crockford](http://en.wikipedia.org/wiki/Douglas_Crockford)  
