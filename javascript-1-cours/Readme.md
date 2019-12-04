@@ -197,9 +197,9 @@ Q2 Ecrire la fonction multiplieur(a) qui renvoie une fonction capable de réalis
 
 Prenez une pause pour comprendre ce code et posez vos questions.
 
--> Langage fonctionnel, objet, imperatif
--> Fonctions d'ordre supérieur
--> 𝝀-expression
+-> Langage fonctionnel, objet, imperatif  
+-> Fonctions d'ordre supérieur  
+-> 𝝀-expression  
 # Fin de la séance 1
 
 ### Langage fonctionnel pur ou closure ?
