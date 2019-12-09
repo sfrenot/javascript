@@ -87,19 +87,20 @@ Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages
 Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un *systeme turned based*. C'est une boucle infinie : qui lance régulièrement des fonctions de traitements.
 
 **Q3 Boucle turn based**  
+
 Vous voulez une boucle infinie équivalente à l'exécution initiale. La boucle ne doit pas géner l'exécution du navigateur. Vous ne pouvez pas modifier la fonction de charge `test`. L'objectif est de transformer ce code en un minimum de lignes.**
 
 ## Généralisation	des callbacks
 La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
 
-**Q4 Lecture de fichier**
+**Q4 Lecture de fichier**  
 Ecrire un code nodejs permettant de lire le contenu d'un fichier.
 https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback
 
-**Q5 Accès Web**
+**Q5 Accès Web**  
 Ecrire un code nodejs permettant de faire un get sur une page Web https://nodejs.org/api/http.html#http_http_request_options_callback
 
-**Q6 Lecture fichier et accès Web**
+**Q6 Lecture fichier et accès Web**  
 Ecrire un code lisant le contenu d'un fichier contenant des urls, puis pour chaque url accéder au site web correspondant.
 
 Avez-vous des commentaires ?
