@@ -86,7 +86,8 @@ Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages
 
 Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un *systeme turned based*. C'est une boucle infinie : qui lance régulièrement des fonctions de traitements.
 
-** Q3 Réécrire le code précédent afin d'avoir une boucle infinie équivalente à l'exécution initiale. La boucle ne doit pas géner l'exécution du navigateur. Vous ne pouvez pas modifier la fonction de charge `test`. L'objectif est de transformer ce code en un minimum de lignes.**
+** Q3 Réécrire le code précédent    
+Vous voulez une boucle infinie équivalente à l'exécution initiale. La boucle ne doit pas géner l'exécution du navigateur. Vous ne pouvez pas modifier la fonction de charge `test`. L'objectif est de transformer ce code en un minimum de lignes.**
 
 ## Généralisation	des callbacks
 La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
