@@ -7,7 +7,7 @@ Avant d'attaquer ce sujet, il faut que vous ayez compris Javascript. Particuliè
 # Pourquoi faut-il des callback en Javascript ?
 Javascript propose la mise en place de callback en support aux exécutions multithreadées. Le mécanisme de callback est une solution pour ne pas bloquer une exécution monothreadée.
 
-Q1 Quelles sont les idées cachées ici ?
+**Q1 Quelles sont les idées cachées ici ?**
 
 L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback et de ses origines.
 
