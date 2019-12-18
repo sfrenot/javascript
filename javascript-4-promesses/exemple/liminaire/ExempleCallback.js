@@ -17,7 +17,7 @@ fs.readFile('./web.txt', 'utf8', function(err, res) {
           pages = res.body.match(/https{0,1}:\/\/([^'"]*)["']/g);
           if (pages) {
             pages.forEach(function(elem) {
-              // console.log('->', elem)
+              console.log('->', elem)
             })
           }
         }
