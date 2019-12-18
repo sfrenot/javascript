@@ -7,7 +7,7 @@ Avant d'attaquer ce sujet, il faut que vous ayez compris Javascript. Particuliè
 # Pourquoi faut-il des callback en Javascript ?
 Javascript propose la mise en place de callback en support aux exécutions multithreadées. Le mécanisme de callback est une solution pour ne pas bloquer une exécution monothreadée.
 
-Q1 Quelles sont les idées cachées ici ?
+**Q1 Quelles sont les idées cachées ici ?**
 
 L'objectif de ce TD est de réaliser un certain nombre d'exercices afin de comprendre le principe du callback et de ses origines.
 
@@ -57,9 +57,9 @@ Nous allons maintenant transformer le programme suivant, pour qu'il devienne asy
 Copiez et exécutez le code suivant.
 
 ```javascript
-function test(f) {
+function test(f) { // Ne pas toucher à ce code
   setTimeout(function () {
-    for (var i = 0; i < 20; i++) { // Ne pas toucher à ce code
+    for (var i = 0; i < 20; i++) { 
       console.log("coucou", i);
     }
     f();
@@ -86,27 +86,26 @@ Comprenez-vous les enjeux associés à cette approche ? Quels sont les avantages
 
 Maintenant que les choses sont claires, nous pouvons écrire la boucle principale d'un *systeme turned based*. C'est une boucle infinie : qui lance régulièrement des fonctions de traitements.
 
-** Q3 Réécrire le code précédent afin d'avoir une boucle infinie de 'Début, Fin' entrecoupés de 'Terminé'. L'objectif est de transformer ce code en un minimum de lignes.**
+**Q3 Boucle turn based**  
+
+Vous voulez une boucle infinie équivalente à l'exécution initiale. La boucle ne doit pas géner l'exécution du navigateur. Vous ne pouvez pas modifier la fonction de charge `test`. L'objectif est de transformer ce code en un minimum de lignes.**
 
 ## Généralisation	des callbacks
 La majorité des fonctions systèmes liées à Javascript sont asynchrone est donc utilisée avec une fonction de callback. La fonction de callback n'est pas un standard, mais une convention d'exécution, dans laquelle le choix dans l'ordre des paramètres de retour n'est pas évident. Nodejs par exemple a choisi de prendre les erreurs en premier paramètre plutôt que la valeur de retour.
 
-** Q4
+**Q4 Lecture de fichier**  
 Ecrire un code nodejs permettant de lire le contenu d'un fichier.
-https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback **
+https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback
 
-** Q5
+**Q5 Accès Web**  
 Ecrire un code nodejs permettant de faire un get sur une page Web https://nodejs.org/api/http.html#http_http_request_options_callback
-**
 
-** Q6
+**Q6 Lecture fichier et accès Web**  
 Ecrire un code lisant le contenu d'un fichier contenant des urls, puis pour chaque url accéder au site web correspondant.
-**
-
 
 Avez-vous des commentaires ?
 
-#Refs
+# Refs
 
 Philip Roberts  
 - https://www.youtube.com/watch?v=8aGhZQkoFbQ  
