@@ -29,7 +29,7 @@ L'utilisation des promesse se fait selon le pattern suivant :
 .catch (function (err) {...}) // Erreur
 ```
 
-- Installer le package fs-extra-promise
+- Installer le package fs-extra-promise  
 **Q0 En utilisant ce package, lire un fichier et traiter les erreurs possibles.**  
 
 # Ecrire une promesse
