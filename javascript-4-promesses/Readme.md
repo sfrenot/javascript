@@ -30,7 +30,7 @@ L'utilisation des promesse se fait selon le pattern suivant :
 ```
 
 - Installer le package fs-extra-promise
-En utilisant ce package, lire un fichier et traiter les erreurs possibles.
+**Q0 En utilisant ce package, lire un fichier et traiter les erreurs possibles.**  
 
 # Ecrire une promesse
 L'écriture d'une promesse consiste à retourner un objet Promesse. Cette objet 'emballe' l'exécution de la fonction initiale. Si le retour est valide il se fait en invoquant la fonction resolve, sinon en invoquant la fonction reject.
