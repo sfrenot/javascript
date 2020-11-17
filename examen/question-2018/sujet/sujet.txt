@@ -1,0 +1,45 @@
+L'objectif est de faire un afficheur hexadécimal d'un fichier source, en utilisant les promesses. (2 pts)
+----
+
+A) On veut écrire une expression qui transforme une chaîne de caractères vers un tableau représentant
+les valeurs hexadécimales de chaque caractères, en utilisant les expressions régulières et la fonction map.
+"abcd".EXPRESSION -> [h1, h2, h3, h4]
+
+1) L'expression suivante affiche la valeur hexadécimale d'un caractère.
+charCodeAt(0).toString(16).padStart(2,0)
+
+ -> Indiquez le code de test à essayer dans un interpréteur javascript permettant de tester cette expression.
+ -> Quelle est la valeur hexadécimale du caractère '\n'.
+
+2) Utilisez la fonction map pour décomposer un tableau de caractères en tableau de valeurs hexadécimales.
+Conseil : Vous devez utiliser l'expression précédente dans votre fonction map.
+  -> Donnez l'expression utilisant map pour obtenir le résultat suivant :
+    ['a', 'b'].EXPRESSION -> ['xx', 'ab'] // xx et yy sont les valeurs hexadécimales des caractères 'a' et 'b'
+  -> Que donne votre fonction sur ['a', 'b', 'c']
+
+3) Utilisez la fonction match pour décomposer une chaîne de caractères dans un tableau de caractères.
+'ab'.EXPRESSION -> ['a', 'b']
+  -> Donnez une expression régulière permettant transformer la chaîne en tableau de caractères.
+
+4) 'Inliner' l'expression.
+  -> Indiquez l'expression qui donne le résultat en une seule expression.
+  -> Indiquez le résultat de l'appel sur "abcd"
+
+---
+Pour ces dernières questions, on suppose que votre expression A.4 fonctionne.
+Les questions sont donc indépendantes de la première partie.
+
+B) Nous voulons utiliser des promesses pour traduire le contenu d'un fichier en hexadécimal. (2 pts)
+
+1) Donnez les instructions pour installer et pouvoir utiliser le module npm 'fs-extra-promise'.
+2) Indiquez le code permettant de lire un fichier texte, puis d'afficher le résultat.
+3) Ecrire le code permettant d'utiliser l'expression précédente A4 après lecture du fichier
+4) 'Promessifiez' votre fonction 4A afin de pouvoir renvoyer le résultat de la transformation
+dans le flot de promesses suivant :
+
+'lireLefichier'
+.puis 'transformer le résultat en tableau de codes hexadécimaux'
+.puis 'afficher le résultat'
+
+ps : valider facilement le résultat d'une fonction dans une promesse, on peut utiliser
+la construction suivante : Promise.resolve(<resultat valide>)
