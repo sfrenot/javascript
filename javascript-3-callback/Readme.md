@@ -45,6 +45,8 @@ test(function(message) {
   console.log("->", message);
 });
 
+console.log("Fin")
+
 ```
 
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
@@ -55,7 +57,7 @@ Nous allons maintenant transformer le programme suivant, pour qu'il devienne asy
 Copiez et exécutez le code suivant.
 
 ```javascript
-function test(f) { // Ne pas toucher à ce code
+function test(f) { // Ne pas toucher à cette fonction
   setTimeout(function () {
     for (var i = 0; i < 20; i++) { 
       console.log("coucou", i);
