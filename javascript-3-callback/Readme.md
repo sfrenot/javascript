@@ -25,7 +25,6 @@ function test() {
 console.log("Debut");
 result = test();
 console.log("->", result);
-console.log("Fin");
 ```
 
 Avez-vous des commentaires ?
@@ -46,7 +45,6 @@ test(function(message) {
   console.log("->", message);
 });
 
-console.log("Fin")
 ```
 
 Quelles sont les différences par rapport au programme initial ? Avez-vous des commentaires ?
