@@ -168,7 +168,6 @@ Quelques codes désagréables
     "Appolo" + 5
     null + "ify"
     "5" * 5
-    "strawberry" * 5
 ```
 **Comment "blinder" tout cela ?**
 
