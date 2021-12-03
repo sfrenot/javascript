@@ -240,6 +240,16 @@ Le code suivant utilise plutôt un paradigme objet pour réaliser l'action.
 ```
 
 ### Allons, respirons un peu avec les objets et les tableaux
+Les tableaux existent.
+```javascript
+    mesAmis = ["bob", "raoul", "louis"]
+    for (i = 0; i < mesAmis.length; i++) {
+      console.log("->" + mesAmis[i]);
+    }
+    tesAmis = new Array();
+    tesAmis.push(1);
+    tesAmis.push('leon');
+```
 Un objet n'est pas un objet Java ... Mais une HashMap, une Map, un tableau Associatif. Bref une structure qui gère des équivalences clé valeurs.
 Q5 : Pourquoi est-ce un objet ?
 ```javascript
@@ -253,16 +263,6 @@ Q5 : Pourquoi est-ce un objet ?
     for (o in chose) {
       console.log( o + '->' + chose[o])
     }
-```
-Les tableaux existent.
-```javascript
-    mesAmis = ["bob", "raoul", "louis"]
-    for (i = 0; i < mesAmis.length; i++) {
-      console.log("->" + mesAmis[i]);
-    }
-    tesAmis = new Array();
-    tesAmis.push(1);
-    tesAmis.push('leon');
 ```
 **Une petite remarque. Dans l'exemple précédent, que se passe t'il si on remplace :
 
