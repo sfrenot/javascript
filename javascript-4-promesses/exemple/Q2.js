@@ -1,14 +1,13 @@
 Promise = require('bluebird');
 
 wait = function(time) { 
-  a = new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, reject) {
     if (time > 3000) {
       reject('erreur');
     } else {
       setTimeout(resolve, time);
     }
   }); 
-  return a;
 } 
 
 wait(2000)
