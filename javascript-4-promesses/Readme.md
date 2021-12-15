@@ -85,5 +85,14 @@ A la fin de ce TD, vous devez :
 - Savoir enchainer des promesses et le traitement associé
 - Avoir compris les mots clés : then / catch / finally
 
+# Evolutions
+await / async :  
+```javascript
+async { }
+res = await calcul(toto);
+```
+Observables  
+
+
 # Question subsidiaire
 Quels sont les trois paradygmes de comportements asynchrones dans Javascript ?
