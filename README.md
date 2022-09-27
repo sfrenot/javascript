@@ -7,3 +7,8 @@ Exercices de cours sur javascript
 - 2-callback : l'explication de pourquoi les callbacks  
 - 3-this : un td d'exercice sur le mot-clé this  
 - 3-promesse : un exercice en cours sur les promesses (à faire après les callback)
+
+Resources : 
+[Eloquent Javascript](https://fr.eloquentjavascript.net/chapter1.html)
+[TypeScript](https://grafikart.fr/tutoriels/typescript-781)
+
