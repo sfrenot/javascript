@@ -23,7 +23,7 @@ Vous devez donc réaliser un shell en node qui présente les caractéristiques s
 - Pouvoir tuer, mettre en pause ou reprendre un processus avec une commmande `bing [-k|-p|-c] <processId>`
 - Pouvoir exécuter en tâche de fond un programme avec le postfix '!'
 - Sortir du shell sur CTRl-P
-- Détacher certains processus du CLIi avec la commande `keep`
+- Détacher certains processus du CLIi avec la commande `keep <processId>`
 
 Pour les différentes commandes vous pouvez utiliser les commandes du shel présentes, mais vous devez les `emballer` pour limiter les options et rendre votre shell le plus simple possible. 
 
