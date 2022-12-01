@@ -1,0 +1,13 @@
+{
+  "0cash": {
+    "name": "0cash",
+    "git": "https://github.com/0cash/0cash"
+  },
+  "0x": {
+    "name": "0x"
+  },
+  "0xcert": {
+    "name": "0xcert",
+    "git": "http://www.google.com/0xcert"
+  }
+}
