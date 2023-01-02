@@ -28,6 +28,7 @@ Vous devez donc réaliser un shell en node qui présente les caractéristiques s
 Pour les différentes commandes vous pouvez utiliser les commandes du shel présentes, mais vous devez les `emballer` pour limiter les options et rendre votre shell le plus simple possible. 
 
 ## Jeu de test
+A vous de voir si vous voulez vous lancer.
 
 
 ## Pistes d'études
@@ -35,9 +36,8 @@ Il existe de nombreux outils et paquages javascript qui peuvent vous aider à r�
 
 
 - prompt : permet d'intéragir avec un utilisateur pour récupérer 
-- inquire : 
-- node REPL : 
-- 
+- inquire : similaire au package prompt
+- node REPL : possibilité d'ajouter des commandes directement dans l'interpréteur interactif de JS
 
 
 
