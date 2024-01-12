@@ -5,6 +5,8 @@ Pour démarrer il faut être familier avec le livre Eloquent Javascript. (Versio
 
 Le chapitre 11, est à regarder de près, car l'approche asynchrone différencie initialement javascript d'autres langages. (cf séance 2 du cours présent)
 
+Quand javascript est globalement compris, vous pouvez passer à un exercice d'application. Cette année je vous propose de réaliser un jeu [projet2](./projet2/Readme.md)
+
 # javascript
 
 Exercices de cours sur javascript
