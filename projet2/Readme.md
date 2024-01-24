@@ -14,6 +14,7 @@ Il doit être accompagné d'un Readme.md minimaliste permettant de lancer le jeu
 
 # Si vous êtes en avance vous pouvez essayer des extensions
 - donner un temps limité par joueur
+- séparer le jeu sur deux fenêtre liées par le fichier de log des coups
 - jouer sur deux machines différentes avec une connexion tcp entre les deux
 - vérifier dans un dictionnaire externe chaque proposition
 - proposer la meilleur proposition possible avec un dictionnaire
