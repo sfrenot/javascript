@@ -40,10 +40,3 @@ Il existe de nombreux outils et paquages javascript qui peuvent vous aider à r�
 - node REPL : possibilité d'ajouter des commandes directement dans l'interpréteur interactif de JS
 
 
-
-
-
-
-
-
-
