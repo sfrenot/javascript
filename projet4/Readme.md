@@ -1,7 +1,7 @@
 # Réalisation d'un jeu de cartes multi-joueurs
-En partant des [règles](./Regles-Flp-7-vf.pdf).
+En partant des [règles](./Regles-Flp-7-vf.pdf) du jeu Flip7.
 
-L'objectif est de réaliser le jeu en mode texte. 
+L'objectif est de réaliser le jeu en mode texte.
 Vous devez pouvoir jouer à n joueurs
 Toutes les tours des joueurs doivent être enregistrés dans un fichier.
 
